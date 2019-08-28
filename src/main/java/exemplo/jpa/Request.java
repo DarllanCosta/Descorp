@@ -24,9 +24,9 @@ public class Request implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer Id;
-    Date TravelDate;
-    String Justification;
-    Date UntilDate;
+    Integer id;
+    Date travelDate;
+    String justification;
+    Date untilDate;
     
 }

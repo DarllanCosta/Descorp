@@ -24,7 +24,7 @@ public class Agency implements Serializable{
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    Integer Id;
    String agencyName;
-   String Email;
+   String email;
    String address;
-   String Phone;   
+   String phone;   
 }

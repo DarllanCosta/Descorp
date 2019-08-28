@@ -14,9 +14,9 @@ import javax.persistence.Id;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer Id;
-    String Name;
-    String Username;
-    String Password;
+    Integer id;
+    String name;
+    String username;
+    String password;
     
 }

@@ -22,9 +22,9 @@ import javax.persistence.Id;
 public class Project implements Serializable{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   Integer Id;
-   String ProjectName;
-   Double ProjectMoney;
-   String Description;
+   Integer id;
+   String projectName;
+   Double projectMoney;
+   String description;
    
 }

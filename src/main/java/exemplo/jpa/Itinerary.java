@@ -23,9 +23,9 @@ import javax.persistence.Id;
 public class Itinerary implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer Id;
-    String Departure;
-    String Destination;
-    Date CheckInDate;
-    Date CheckOutDate;
+    Integer id;
+    String departure;
+    String destination;
+    Date checkInDate;
+    Date checkOutDate;
 }
