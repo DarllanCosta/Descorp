@@ -5,7 +5,6 @@
  */
 package exemplo.jpa;
 
-import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
@@ -15,16 +14,17 @@ import javax.persistence.Id;
 
 /**
  *
- * @author ALUNO
+ * @author Darllan Costa
  */
+
 @Entity
 @Access(AccessType.FIELD)
-public class Project implements Serializable{
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   Integer id;
-   String projectName;
-   Double projectBudget;
-   String description;
-   
+public class Bank_Details {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+    String acount_Name;
+    String acount_Number;
+    String account_Agency;
+    String account_Type;
 }

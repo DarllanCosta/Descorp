@@ -5,7 +5,7 @@
  */
 package exemplo.jpa;
 
-import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
@@ -15,16 +15,22 @@ import javax.persistence.Id;
 
 /**
  *
- * @author ALUNO
+ * @author Darllan Costa
  */
+
+
 @Entity
 @Access(AccessType.FIELD)
-public class Project implements Serializable{
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   Integer id;
-   String projectName;
-   Double projectBudget;
-   String description;
-   
+public class Flight {
+     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+    String provider;
+    Integer number;
+    String departure;
+    String destination;
+    Date checkin; 
+    Date checkout;
+    Double price;
+    
 }

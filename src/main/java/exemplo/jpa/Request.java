@@ -28,5 +28,6 @@ public class Request implements Serializable{
     Date travelDate;
     String justification;
     Date untilDate;
+    String departure;
     
 }
