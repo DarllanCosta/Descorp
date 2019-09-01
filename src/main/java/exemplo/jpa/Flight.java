@@ -22,7 +22,7 @@ import javax.persistence.Id;
 @Entity
 @Access(AccessType.FIELD)
 public class Flight {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String provider;

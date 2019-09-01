@@ -25,6 +25,5 @@ public class Agency implements Serializable{
    Integer Id;
    String agencyName;
    String email;
-   String address;
    String phone;   
 }
