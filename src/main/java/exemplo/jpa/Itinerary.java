@@ -7,13 +7,19 @@ package exemplo.jpa;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -29,6 +35,15 @@ public class Itinerary implements Serializable{
     String destination;
     Date checkInDate;
     Date checkOutDate;
+    
+    //um para muitos quotes
+     @OneToMany(mappedBy = "itinerary", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Quote> quotes;
+    
+    // muitos para um user
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_REQUEST", referencedColumnName = "ID")
+    private Request request;
 
     public String getDeparture() {
         return departure;

@@ -6,6 +6,7 @@
 package exemplo.jpa;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -13,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -27,6 +29,9 @@ public class Project implements Serializable{
    String projectName;
    Double projectBudget;
    String description;
+   @ManyToMany(mappedBy = "projetos")
+   private List<User> users;
+   
 
     public String getProjectName() {
         return projectName;

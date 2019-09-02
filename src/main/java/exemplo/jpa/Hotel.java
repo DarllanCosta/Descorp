@@ -6,13 +6,19 @@
 package exemplo.jpa;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -26,7 +32,18 @@ public class Hotel implements Serializable {
     Integer id;
     String name;
     Integer nStars;    
+    
+    //mapeamento 1 pra 1 de usuário para Endereço
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true)
+    @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
+    private Address address;
 
+    //um para muitos quotes
+     @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Quote> quotes;
+    
+    
+    
     public String getName() {
         return name;
     }

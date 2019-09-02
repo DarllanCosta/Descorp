@@ -31,6 +31,7 @@ public class Address implements Serializable{
     String neighborhood;
     String state;
     Integer number;
+    
 
     public String getStreet() {
         return street;

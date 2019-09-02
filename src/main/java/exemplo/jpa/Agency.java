@@ -6,13 +6,19 @@
 package exemplo.jpa;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -27,8 +33,16 @@ public class Agency implements Serializable{
    String agencyName;
    String email;
    String phone;   
-   String address;
-  
+   
+   
+   //mapeamento 1 pra 1 de usuário para Endereço
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)
+    @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
+    private Address address;
+    
+  //um para muitos quotes
+    @OneToMany(mappedBy = "agency", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Quote> quotes;
 
     public String getAgencyName() {
         return agencyName;
@@ -46,14 +60,7 @@ public class Agency implements Serializable{
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
+  
     public String getPhone() {
         return phone;
     }

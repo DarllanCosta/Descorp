@@ -7,13 +7,17 @@ package exemplo.jpa;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -34,6 +38,10 @@ public class Flight implements Serializable{
     Date checkin; 
     Date checkout;
     Double price;
+    
+    //um para muitos quotes
+    @OneToMany(mappedBy = "flight", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Quote> quotes;
 
     public String getProvider() {
         return provider;

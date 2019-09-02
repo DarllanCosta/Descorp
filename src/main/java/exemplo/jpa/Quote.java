@@ -10,9 +10,12 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -27,6 +30,23 @@ public class Quote implements Serializable{
     Integer id;
     Integer isSelected;
     String Status;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_ITINERARY", referencedColumnName = "ID")
+    private Itinerary itinerary;
+    
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_AGENCY", referencedColumnName = "ID")
+    private Agency agency;
+     
+     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ID_FLIGHT", referencedColumnName = "ID")
+    private Flight flight;
+      
+       @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "ID_HOTEL", referencedColumnName = "ID")
+    private Hotel hotel;
+     
 
     public Integer getIsSelected() {
         return isSelected;
