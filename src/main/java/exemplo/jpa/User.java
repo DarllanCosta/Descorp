@@ -55,6 +55,9 @@ public class User implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "ID_PROJECT")}
          )
     private List<Project> projetos;
+
+    public User() {
+    }
      
     public String getName() {
         return name;

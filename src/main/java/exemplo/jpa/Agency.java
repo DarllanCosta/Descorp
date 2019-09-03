@@ -44,6 +44,9 @@ public class Agency implements Serializable{
     @OneToMany(mappedBy = "agency", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Quote> quotes;
 
+    public Agency() {
+    }
+
     public String getAgencyName() {
         return agencyName;
     }

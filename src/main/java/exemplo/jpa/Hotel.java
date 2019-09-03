@@ -41,6 +41,9 @@ public class Hotel implements Serializable {
     //um para muitos quotes
      @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Quote> quotes;
+
+    public Hotel() {
+    }
     
     
     

@@ -45,6 +45,9 @@ public class Itinerary implements Serializable{
     @JoinColumn(name = "ID_REQUEST", referencedColumnName = "ID")
     private Request request;
 
+    public Itinerary() {
+    }
+
     public String getDeparture() {
         return departure;
     }

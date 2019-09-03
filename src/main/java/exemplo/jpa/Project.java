@@ -31,6 +31,9 @@ public class Project implements Serializable{
    String description;
    @ManyToMany(mappedBy = "projetos")
    private List<User> users;
+
+    public Project() {
+    }
    
 
     public String getProjectName() {

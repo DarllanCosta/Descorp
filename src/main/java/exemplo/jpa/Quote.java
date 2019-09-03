@@ -46,6 +46,9 @@ public class Quote implements Serializable{
        @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "ID_HOTEL", referencedColumnName = "ID")
     private Hotel hotel;
+
+    public Quote() {
+    }
      
 
     public Integer getIsSelected() {

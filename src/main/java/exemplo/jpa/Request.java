@@ -46,6 +46,9 @@ public class Request implements Serializable{
     @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
     private User user;
 
+    public Request() {
+    }
+
     public Date getTravelDate() {
         return travelDate;
     }

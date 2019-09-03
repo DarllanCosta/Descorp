@@ -30,6 +30,9 @@ public class Bank_Details implements Serializable{
     String account_Agency;
     String account_Type;
 
+    public Bank_Details() {
+    }
+
     public String getAcount_Name() {
         return acount_Name;
     }

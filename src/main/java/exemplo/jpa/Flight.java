@@ -42,6 +42,9 @@ public class Flight implements Serializable{
     @OneToMany(mappedBy = "flight", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Quote> quotes;
 
+    public Flight() {
+    }
+
     public String getProvider() {
         return provider;
     }
