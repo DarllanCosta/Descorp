@@ -36,7 +36,6 @@ public class Flight implements Serializable{
     String departure;
     String destination;
     Date checkin; 
-    Date checkout;
     Double price;
     
     //um para muitos quotes
@@ -83,13 +82,6 @@ public class Flight implements Serializable{
         this.checkin = checkin;
     }
 
-    public Date getCheckout() {
-        return checkout;
-    }
-
-    public void setCheckout(Date checkout) {
-        this.checkout = checkout;
-    }
 
     public Double getPrice() {
         return price;
