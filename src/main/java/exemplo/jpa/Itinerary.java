@@ -80,6 +80,24 @@ public class Itinerary implements Serializable{
         this.checkOutDate = checkOutDate;
     }
 
+    public List<Quote> getQuotes() {
+        return quotes;
+    }
+
+    public void setQuotes(List<Quote> quotes) {
+        this.quotes = quotes;
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 5;

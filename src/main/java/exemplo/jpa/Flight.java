@@ -94,6 +94,16 @@ public class Flight implements Serializable{
         this.price = price;
     }
 
+    public List<Quote> getQuotes() {
+        return quotes;
+    }
+
+    public void setQuotes(List<Quote> quotes) {
+        this.quotes = quotes;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 5;

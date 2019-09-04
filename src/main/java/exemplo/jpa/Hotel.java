@@ -70,6 +70,24 @@ public class Hotel implements Serializable {
         return hash;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<Quote> getQuotes() {
+        return quotes;
+    }
+
+    public void setQuotes(List<Quote> quotes) {
+        this.quotes = quotes;
+    }
+    
+    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

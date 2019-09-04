@@ -60,6 +60,16 @@ public class Project implements Serializable{
         this.description = description;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 7;
