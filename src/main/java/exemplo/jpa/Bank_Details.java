@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,28 +26,32 @@ public class Bank_Details implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String acount_Name;
-    String acount_Number;
+    @Column(name = "TXT_ACCOUNT_NAME", nullable = false, length = 255)
+    String account_Name;
+    @Column(name = "TXT_ACCOUNT_NUMBER", nullable = false, length = 20)
+    String account_Number;
+    @Column(name = "TXT_ACCOUNT_AGENCY", nullable = false)
     String account_Agency;
+    @Column(name = "TXT_AGENCY_TYPE", nullable = false, length = 10)
     String account_Type;
 
     public Bank_Details() {
     }
 
     public String getAcount_Name() {
-        return acount_Name;
+        return account_Name;
     }
 
     public void setAcount_Name(String acount_Name) {
-        this.acount_Name = acount_Name;
+        this.account_Name = acount_Name;
     }
 
     public String getAcount_Number() {
-        return acount_Number;
+        return account_Number;
     }
 
     public void setAcount_Number(String acount_Number) {
-        this.acount_Number = acount_Number;
+        this.account_Number = acount_Number;
     }
 
     public String getAccount_Agency() {

@@ -11,6 +11,7 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,9 @@ public class Hotel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @Column(name = "TXT_NAME", nullable = false,length = 255)
     String name;
+    @Column(name = "NUMBER_STARS", length = 5)
     Integer nStars;    
     
     //mapeamento 1 pra 1 de usuário para Endereço

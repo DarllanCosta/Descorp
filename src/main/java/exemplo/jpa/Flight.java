@@ -12,12 +12,15 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -31,11 +34,18 @@ public class Flight implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @Column(name = "TXT_PROVIDER", nullable = false, length = 255)
     String provider;
+    @Column(name = "TXT_NUMBER", nullable = false, length = 255)
     Integer number;
+    @Column(name = "TXT_DEPARTURE", nullable = false, length = 50)
     String departure;
+    @Column(name = "TXT_DESTINATION", nullable = false, length = 50)
     String destination;
+    @Column(name = "CHECKIN_DATE", nullable = false)
+    @Temporal(TemporalType.DATE)
     Date checkin; 
+    @Column(name = "TXT_PRICE", nullable = false)
     Double price;
     
     //um para muitos quotes

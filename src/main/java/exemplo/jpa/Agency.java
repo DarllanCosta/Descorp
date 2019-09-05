@@ -11,6 +11,7 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,9 +31,12 @@ public class Agency implements Serializable{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    Integer Id;
+   @Column(name = "TXT_AGENCY_NAME", nullable = false, length = 255)
    String agencyName;
+   @Column(name = "TXT_EMAIL", nullable = false, length = 50)
    String email;
-   String phone;   
+   @Column(name = "TXT_PHONE")
+   String phone; 
    
    
    //mapeamento 1 pra 1 de usuário para Endereço

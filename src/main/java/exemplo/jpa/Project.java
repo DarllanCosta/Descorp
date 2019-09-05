@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,9 +27,13 @@ public class Project implements Serializable{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    Integer id;
+   @Column(name = "TXT_PROJECT_NAME", nullable = false, length = 50)
    String projectName;
+   @Column(name = "PROJECT_BUDGET", nullable = false)
    Double projectBudget;
+   @Column(name = "TXT_PROJECT_DESCRIPTION", length = 255)
    String description;
+   
    @ManyToMany(mappedBy = "projetos")
    private List<User> users;
 

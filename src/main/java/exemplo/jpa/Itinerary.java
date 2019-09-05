@@ -12,6 +12,7 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -31,9 +34,15 @@ public class Itinerary implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @Column(name = "TXT_DEPARTURE", nullable = false)
     String departure;
+    @Column(name = "TXT_DESTINATION", nullable = false)
     String destination;
+    @Column(name = "CHECKIN_DATE", nullable = false)
+    @Temporal(TemporalType.DATE)
     Date checkInDate;
+    @Column(name = "CHECKOUT_DATE", nullable = false)
+    @Temporal(TemporalType.DATE)        
     Date checkOutDate;
     
     //um para muitos quotes
