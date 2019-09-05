@@ -11,6 +11,7 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,9 @@ public class Hotel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @Column(name = "TXT_NAME", nullable = false,length = 255)
     String name;
+    @Column(name = "NUMBER_STARS", length = 5)
     Integer nStars;    
     
     //mapeamento 1 pra 1 de usuário para Endereço
@@ -41,6 +44,9 @@ public class Hotel implements Serializable {
     //um para muitos quotes
      @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Quote> quotes;
+
+    public Hotel() {
+    }
     
     
     
@@ -66,6 +72,24 @@ public class Hotel implements Serializable {
         hash = 19 * hash + Objects.hashCode(this.id);
         return hash;
     }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<Quote> getQuotes() {
+        return quotes;
+    }
+
+    public void setQuotes(List<Quote> quotes) {
+        this.quotes = quotes;
+    }
+    
+    
 
     @Override
     public boolean equals(Object obj) {

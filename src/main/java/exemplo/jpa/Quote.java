@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,9 @@ public class Quote implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @Column(name = "IS_SELECTED", nullable = false)
     Integer isSelected;
+    @Column(name = "TXT_STATUS", nullable = false)
     String Status;
     
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -46,6 +49,9 @@ public class Quote implements Serializable{
        @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "ID_HOTEL", referencedColumnName = "ID")
     private Hotel hotel;
+
+    public Quote() {
+    }
      
 
     public Integer getIsSelected() {
@@ -63,6 +69,40 @@ public class Quote implements Serializable{
     public void setStatus(String Status) {
         this.Status = Status;
     }
+
+    public Itinerary getItinerary() {
+        return itinerary;
+    }
+
+    public void setItinerary(Itinerary itinerary) {
+        this.itinerary = itinerary;
+    }
+
+    public Agency getAgency() {
+        return agency;
+    }
+
+    public void setAgency(Agency agency) {
+        this.agency = agency;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+    
+    
 
     @Override
     public int hashCode() {

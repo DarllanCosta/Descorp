@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,12 +26,19 @@ import javax.persistence.Id;
 public class Address implements Serializable{
     @Id
     Integer id;
+    @Column(name = "TXT_STREET", nullable = false, length = 255)
     String street;
+    @Column(name = "POSTAL_CODE", nullable = false, length = 20)
     String postalCode;
-    String cep;
+    @Column(name = "TXT_NEIGHBORHOOD",   nullable = false, length = 20)
     String neighborhood;
+    @Column(name = "TXT_STATE", nullable = false, length = 255)
     String state;
+    @Column(name = "NUMBER", nullable = false)
     Integer number;
+
+    public Address() {
+    }
     
 
     public String getStreet() {
@@ -47,14 +55,6 @@ public class Address implements Serializable{
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
     }
 
     public String getNeighborhood() {

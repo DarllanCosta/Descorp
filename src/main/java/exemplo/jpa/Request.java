@@ -12,6 +12,7 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -32,9 +35,15 @@ public class Request implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @Column(name = "TRAVEL_DATE", nullable = false)
+    @Temporal(TemporalType.DATE)
     Date travelDate;
+    @Column(name = "TXT_JUSTIFICATION", length = 255)
     String justification;
+    @Column(name = "UNTIL_DATE", nullable = false)
+    @Temporal(TemporalType.DATE)
     Date untilDate;
+    @Column(name = "TXT_DEPARTURE", length = 50, nullable = false)
     String departure;
     
     //muitos pra um itinerarios
@@ -45,6 +54,9 @@ public class Request implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
     private User user;
+
+    public Request() {
+    }
 
     public Date getTravelDate() {
         return travelDate;
@@ -77,6 +89,23 @@ public class Request implements Serializable{
     public void setDeparture(String departure) {
         this.departure = departure;
     }
+
+    public List<Itinerary> getItinerarys() {
+        return itinerarys;
+    }
+
+    public void setItinerarys(List<Itinerary> itinerarys) {
+        this.itinerarys = itinerarys;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
 
     @Override
     public int hashCode() {
