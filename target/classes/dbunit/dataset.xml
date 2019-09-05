@@ -10,21 +10,21 @@
     
     <Bank_Details txt_account_name="Teste" txt_account_number="15154" txt_account_Agency="bradesco" txt_account_type="Corrente"/>
     
-    <Flight txt_provider="Bahia" txt_number="T1885" txt_departure="Recife" txt_destination="Bahia" checkin="29/09/2019" price="1550"/>
+    <Flight txt_provider="Bahia" txt_number="T1885" txt_departure="Recife" txt_destination="Bahia" checkin_date="29/09/2019" txt_price="1550"/>
     
-    <Hotel name="holiday" nStars="5" ID_ADDRESS="2"/>
+    <Hotel txt_name="holiday" number_stars="5" id_address="2"/>
     
-    <Itinerary departure="Recife" destination="Bahia" checkInDate="29/09/2019" checkOutDate="05/10/2019" ID_REQUEST="01" />
+    <Itinerary txt_departure="Recife" txt_destination="Bahia" checkin_date="29/09/2019" checkout_date="05/10/2019" id_request="01" />
   
-    <Project projectName="travel" projectBudget="1555" description="Sistema de viagens"/>
+    <Project txt_project_name="travel" project_budget="1555" txt_description="Sistema de viagens"/>
     
-    <Quote isSelected="1" Status="new" ID_ITINERARY="01" ID_AGENCY="01" ID_FLIGHT="01" ID_HOTEL="01"/> 
+    <Quote is_selected="1" txt_status="new" id_itinerary="01" id_agency="01" id_flight="01" id_hotel="01"/> 
     
-    <Request travelDate="29/09/2019" justification="Vai render grana" untilDate="05/10/2019" departure="Recife" ID_USER="01"/>
+    <Request travel_date="29/09/2019" txt_justification="Vai render grana" until_Date="05/10/2019" txt_departure="Recife" id_user="01"/>
     
-    <User name="enilsu" username="Enilsinho" password="0215612" phone="956626355" email="enilsu@ifpe.com" role="travler"/>
+    <User txt_name="enilsu" username="Enilsinho" password="0215612" txt_phone="956626355" txt_email="enilsu@ifpe.com"/>
    
-    <TB_USER_PROJECT ID_USER="01" ID_PROJECT="01"/>
+    <TB_USER_PROJECT id_user="01" id_project="01"/>
     
     <Address txt_street="Avenida Boa vista" postal_code="5087450" txt_state="Pernambuco" 
              txt_neighborhood="Boa Vista" number="484"/>
@@ -35,21 +35,21 @@
     
     <Bank_Details txt_account_name="Darllan Enilson" txt_account_number="84956476564" txt_account_Agency="Santander" txt_account_type="Corrente"/>
     
-    <Flight txt_provider="Bahia" txt_number="T195655" txt_departure="Recife" txt_destination="Bahia" checkin="30/09/2019" price="150"/>
+    <Flight txt_provider="Bahia" txt_number="T195655" txt_departure="Recife" txt_destination="Bahia" checkin_date="30/09/2019" txt_price="150"/>
     
-    <Hotel name="Plaza" nStars="5" ID_ADDRESS="04"/>
+    <Hotel txt_name="Plaza" number_stars="5" id_address="04"/>
     
-    <Itinerary departure="Recife" destination="Bahia" checkInDate="30/09/2019" checkOutDate="10/10/2019" ID_REQUEST="02" />
+    <Itinerary txt_departure="Recife" txt_destination="Bahia" checkin_date="30/09/2019" checkout_date="10/10/2019" id_request="02" />
   
-    <Project projectName="travler" projectBudget="553" description="Sistema de viagens"/>
+    <Project txt_project_name="travler" project_budget="553" txt_description="Sistema de viagens"/>
     
-    <Quote isSelected="1" Status="new" ID_ITINERARY="02" ID_AGENCY="02" ID_FLIGHT="02" ID_HOTEL="02"/> 
+    <Quote is_selected="1" txt_status="new" id_itinerary="02" id_agency="02" id_flight="02" id_hotel="02"/> 
     
-    <Request travelDate="30/09/2019" justification="Vai render grana" untilDate="10/10/2019" departure="Recife" ID_USER="02"/>
+    <Request travel_date="30/09/2019" txt_justification="Vai render grana" until_Date="10/10/2019" txt_departure="Recife" id_user="02"/>
     
-    <User name="Darllan" username="darllanzinho" password="54965954" phone="549594965" email="dllan@ifpe.com" role="travler"/>
+    <User txt_name="Darllan" username="darllanzinho" password="54965954" txt_phone="549594965" txt_email="dllan@ifpe.com"/>
    
-    <TB_USER_PROJECT ID_USER="02" ID_PROJECT="02"/>
+    <TB_USER_PROJECT id_user="02" id_project="02"/>
     
     <Address txt_street="avenida gomes taborda" postal_code="854244" txt_state="Pernambuco" 
              txt_neighborhood="Cordeiro" number="9654"/>
@@ -60,21 +60,21 @@
     
     <Bank_Details txt_account_name="joao v b mouzinho" txt_account_number="1548745154" txt_account_Agency="Caixa" txt_account_type="poupança"/>
     
-    <Flight txt_provider="Tam" txt_number="T87" txt_departure="Recife" txt_destination="Bahia" checkin="05/09/2019" price="365"/>
+    <Flight txt_provider="Tam" txt_number="T87" txt_departure="Recife" txt_destination="Bahia" checkin_date="05/09/2019" txt_price="365"/>
     
-    <Hotel name="Continental" nStars="5" ID_ADDRESS="06"/>
+    <Hotel txt_name="Continental" number_stars="5" id_address="06"/>
     
-    <Itinerary departure="Recife" destination="Bahia" checkInDate="05/09/2019" checkOutDate="05/10/2019" ID_REQUEST="03" />
+    <Itinerary txt_departure="Recife" txt_destination="Bahia" checkin_date="05/09/2019" checkout_date="05/10/2019" id_request="03" />
   
-    <Project projectName="Techpark" projectBudget="14855" description="Sistema de vagas para estacionamento"/>
+    <Project txt_project_name="Techpark" project_budget="14855" txt_description="Sistema de vagas para estacionamento"/>
     
-    <Quote isSelected="1" Status="new" ID_ITINERARY="03" ID_AGENCY="03" ID_FLIGHT="03" ID_HOTEL="03"/> 
+    <Quote is_selected="1" txt_status="new" id_itinerary="03" id_agency="03" id_flight="03" id_hotel="03"/> 
     
-    <Request travelDate="05/09/2019" justification="Vai render grana" untilDate="05/10/2019" departure="Recife" ID_USER="03"/>
+    <Request travel_date="05/09/2019" txt_justification="Vai render grana" until_Date="05/10/2019" txt_departure="Recife" id_user="03"/>
     
-    <User name="joão victor" username="pedjoao" password="9654846" phone="9856795287" email="jv@ifpe.com" role="Facilitator"/>
+    <User txt_name="joão victor" username="pedjoao" password="9654846" txt_phone="9856795287" txt_email="jv@ifpe.com"/>
    
-    <TB_USER_PROJECT ID_USER="03" ID_PROJECT="03"/>
+    <TB_USER_PROJECT id_user="03" id_project="03"/>
     
     <Address txt_street="Rua da moeda" postal_code="645572125" txt_state="Pernambuco" 
              txt_neighborhood="Boa vista" number="585"/>
@@ -87,19 +87,19 @@
     
     <Flight txt_provider="Bahia" txt_number="T8785" txt_departure="Recife" txt_destination="Bahia" checkin_date="29/09/2019" txt_price="18740"/>
     
-    <Hotel name="casa blanka" nStars="5" ID_ADDRESS="08"/>
+    <Hotel txt_name="casa blanka" number_stars="5" id_address="08"/>
     
-    <Itinerary departure="Recife" destination="Bahia" checkInDate="29/09/2019" checkOutDate="05/10/2019" ID_REQUEST="04" />
+    <Itinerary txt_departure="Recife" txt_destination="Bahia" checkin_date="29/09/2019" checkout_date="05/10/2019" id_request="04" />
   
-    <Project projectName="truetravel" projectBudget="1987" description="Sistema de viagens"/>
+    <Project txt_project_name="truetravel" project_budget="1987" txt_description="Sistema de viagens"/>
     
-    <Quote isSelected="1" Status="new" ID_ITINERARY="04" ID_AGENCY="04" ID_FLIGHT="04" ID_HOTEL="04"/> 
+    <Quote is_selected="1" txt_status="new" id_itinerary="04" id_agency="04" id_flight="04" id_hotel="04"/> 
     
-    <Request travelDate="29/09/2019" justification="Vai render grana" untilDate="05/10/2019" departure="Recife" ID_USER="04"/>
+    <Request travel_date="29/09/2019" txt_justification="Vai render grana" until_Date="05/10/2019" txt_departure="Recife" id_user="04"/>
     
-    <User name="Guilherme" username="last" password="9464818" phone="8485594579" email="last@ifpe.com" role="travler"/>
+    <User txt_name="Guilherme" username="last" password="9464818" txt_phone="8485594579" txt_email="last@ifpe.com"/>
    
-    <TB_USER_PROJECT ID_USER="04" ID_PROJECT="04"/>
+    <TB_USER_PROJECT id_user="04" id_project="04"/>
    
        
     
