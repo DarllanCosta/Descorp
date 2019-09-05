@@ -37,7 +37,7 @@ public class Flight implements Serializable{
     @Column(name = "TXT_PROVIDER", nullable = false, length = 255)
     String provider;
     @Column(name = "TXT_NUMBER", nullable = false, length = 255)
-    Integer number;
+    String number;
     @Column(name = "TXT_DEPARTURE", nullable = false, length = 50)
     String departure;
     @Column(name = "TXT_DESTINATION", nullable = false, length = 50)
@@ -69,11 +69,11 @@ public class Flight implements Serializable{
         this.provider = provider;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

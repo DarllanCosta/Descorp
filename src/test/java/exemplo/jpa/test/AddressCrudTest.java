@@ -30,7 +30,7 @@ public class AddressCrudTest extends GenericTest {
     
     private Address criarAddress(){
         Address newAddress = new Address();
-        newAddress.setState("Rua da Lama");
+        newAddress.setStreet("Rua da Lama");
         newAddress.setPostalCode("5428090");
         newAddress.setNumber(80);
         newAddress.setNeighborhood("Caxangá");

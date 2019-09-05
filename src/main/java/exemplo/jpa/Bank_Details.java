@@ -32,7 +32,7 @@ public class Bank_Details implements Serializable{
     String account_Number;
     @Column(name = "TXT_ACCOUNT_AGENCY", nullable = false)
     String account_Agency;
-    @Column(name = "TXT_AGENCY_TYPE", nullable = false, length = 10)
+    @Column(name = "TXT_ACCOUNT_TYPE", nullable = false, length = 10)
     String account_Type;
 
     public Integer getId() {

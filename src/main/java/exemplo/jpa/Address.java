@@ -25,6 +25,7 @@ import javax.persistence.Id;
 @Access(AccessType.FIELD)
 public class Address implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @Column(name = "TXT_STREET", nullable = false, length = 255)
     String street;

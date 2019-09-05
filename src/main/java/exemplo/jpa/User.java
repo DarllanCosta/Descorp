@@ -29,11 +29,11 @@ public class User implements Serializable {
     Integer id;
     @Column(name = "TXT_NAME", length = 50, nullable = false)
     String name;
-    @Column(name = "TXT_USERNAME", length = 50, nullable = false, unique = true)
+    @Column(name = "USERNAME", length = 50, nullable = false, unique = true)
     String username;
     @Column(name = "PASSWORD", length = 20, nullable = false)
     String password;
-    @Column(name = "PHONE", length = 20)
+    @Column(name = "TXT_PHONE", length = 20)
     String phone;
     @Column(name = "TXT_EMAIL", length = 50,nullable = false)
     String email;
