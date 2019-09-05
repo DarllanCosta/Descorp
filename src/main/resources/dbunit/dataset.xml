@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>   
     
-    <Address street="Rua Frei Teófilo de Virgoletta" postalCode="50720660" state="Pernambuco" 
-             neighborhood="Zumbi" number="462"/>
-    <Address street="Rua Frei Teófilo" postalCode="50750660" state="Pernambuco" 
-             neighborhood="Zumbi" number="452"/>
+    <Address txt_street="Rua Frei Teófilo de Virgoletta" postal_code="50720660" txt_state="Pernambuco" 
+             txt_neighborhood="Zumbi" number="462"/>
+    <Address txt_street="Rua Frei Teófilo" postal_code="50750660" txt_state="Pernambuco" 
+             txt_neighborhood="Zumbi" number="452"/>
     
-    <Agency agencyName="cvc" email="cvc@descorp.com" phone="819995784" ID_ADDRESS="01"/>
+    <Agency txt_agency_name="cvc" txt_email="cvc@descorp.com" txt_phone="819995784" id_address="01"/>
     
-    <Bank_Details acount_Name="Teste" acount_Number="15154" account_Agency="bradesco" account_Type="Corrente"/>
+    <Bank_Details txt_account_name="Teste" txt_account_number="15154" txt_account_Agency="bradesco" txt_account_type="Corrente"/>
     
-    <Flight provider="Bahia" number="T1885" departure="Recife" destination="Bahia" checkin="29/09/2019" price="1550"/>
+    <Flight txt_provider="Bahia" txt_number="T1885" txt_departure="Recife" txt_destination="Bahia" checkin="29/09/2019" price="1550"/>
     
     <Hotel name="holiday" nStars="5" ID_ADDRESS="2"/>
     
@@ -26,16 +26,16 @@
    
     <TB_USER_PROJECT ID_USER="01" ID_PROJECT="01"/>
     
-    <Address street="Avenida Boa vista" postalCode="5087450" state="Pernambuco" 
-             neighborhood="Boa Vista" number="484"/>
-    <Address street="Avenida Guararapes" postalCode="50750660" state="Pernambuco" 
-             neighborhood="Boa Vista" number="842"/>
+    <Address txt_street="Avenida Boa vista" postal_code="5087450" txt_state="Pernambuco" 
+             txt_neighborhood="Boa Vista" number="484"/>
+    <Address txt_street="Avenida Guararapes" postal_code="50750660" txt_state="Pernambuco" 
+             txt_neighborhood="Boa Vista" number="842"/>
     
-    <Agency agencyName="Azul" email="Azul@descorp.com" phone="81998484" ID_ADDRESS="03"/>
+    <Agency txt_agency_name="Azul" txt_email="Azul@descorp.com" txt_phone="81998484" id_address="03"/>
     
-    <Bank_Details acount_Name="Darllan Enilson" acount_Number="84956476564" account_Agency="Santander" account_Type="Corrente"/>
+    <Bank_Details txt_account_name="Darllan Enilson" txt_account_number="84956476564" txt_account_Agency="Santander" txt_account_type="Corrente"/>
     
-    <Flight provider="Bahia" number="T195655" departure="Recife" destination="Bahia" checkin="30/09/2019" price="150"/>
+    <Flight txt_provider="Bahia" txt_number="T195655" txt_departure="Recife" txt_destination="Bahia" checkin="30/09/2019" price="150"/>
     
     <Hotel name="Plaza" nStars="5" ID_ADDRESS="04"/>
     
@@ -51,16 +51,16 @@
    
     <TB_USER_PROJECT ID_USER="02" ID_PROJECT="02"/>
     
-    <Address street="avenida gomes taborda" postalCode="854244" state="Pernambuco" 
-             neighborhood="Cordeiro" number="9654"/>
-    <Address street="Rua da lama" postalCode="985997" state="Pernambuco" 
-             neighborhood="Cordeiro" number="9445"/>
+    <Address txt_street="avenida gomes taborda" postal_code="854244" txt_state="Pernambuco" 
+             txt_neighborhood="Cordeiro" number="9654"/>
+    <Address txt_street="Rua da lama" postal_code="985997" txt_state="Pernambuco" 
+             txt_neighborhood="Cordeiro" number="9445"/>
     
-    <Agency agencyName="Tam" email="Tam@descorp.com" phone="98956596" ID_ADDRESS="05"/>
+    <Agency txt_agency_name="Tam" txt_email="Tam@descorp.com" txt_phone="98956596" id_address="05"/>
     
-    <Bank_Details acount_Name="joao v b mouzinho" acount_Number="1548745154" account_Agency="Caixa" account_Type="poupança"/>
+    <Bank_Details txt_account_name="joao v b mouzinho" txt_account_number="1548745154" txt_account_Agency="Caixa" txt_account_type="poupança"/>
     
-    <Flight provider="Tam" number="T87" departure="Recife" destination="Bahia" checkin="05/09/2019" price="365"/>
+    <Flight txt_provider="Tam" txt_number="T87" txt_departure="Recife" txt_destination="Bahia" checkin="05/09/2019" price="365"/>
     
     <Hotel name="Continental" nStars="5" ID_ADDRESS="06"/>
     
@@ -76,16 +76,16 @@
    
     <TB_USER_PROJECT ID_USER="03" ID_PROJECT="03"/>
     
-    <Address street="Rua da moeda" postalCode="645572125" state="Pernambuco" 
-             neighborhood="Boa vista" number="585"/>
-    <Address street="Rua do desespero" postalCode="695484751" state="Pernambuco" 
-             neighborhood="Boa viagem" number="6458"/>
+    <Address txt_street="Rua da moeda" postal_code="645572125" txt_state="Pernambuco" 
+             txt_neighborhood="Boa vista" number="585"/>
+    <Address txt_street="Rua do desespero" postal_code="695484751" txt_state="Pernambuco" 
+             txt_neighborhood="Boa viagem" number="6458"/>
     
-    <Agency agencyName="gol" email="gol@descorp.com" phone="64515448425" ID_ADDRESS="07"/>
+    <Agency txt_agency_name="gol" txt_email="gol@descorp.com" txt_phone="64515448425" id_address="07"/>
     
-    <Bank_Details acount_Name="Guilherme h f oliveira" acount_Number="64346125" account_Agency="Nubank" account_Type="Salario"/>
+     <Bank_Details txt_account_name="Guilherme h f oliveira" txt_account_number="64346125" txt_account_Agency="Nubank" txt_account_type="Salario"/>
     
-    <Flight provider="Bahia" number="T8785" departure="Recife" destination="Bahia" checkin="29/09/2019" price="18740"/>
+    <Flight txt_provider="Bahia" txt_number="T8785" txt_departure="Recife" txt_destination="Bahia" checkin_date="29/09/2019" txt_price="18740"/>
     
     <Hotel name="casa blanka" nStars="5" ID_ADDRESS="08"/>
     
