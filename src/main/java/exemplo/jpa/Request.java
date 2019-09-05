@@ -58,6 +58,11 @@ public class Request implements Serializable{
     public Request() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    
     public Date getTravelDate() {
         return travelDate;
     }

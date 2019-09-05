@@ -23,7 +23,8 @@ public class AddressCrudTest extends GenericTest {
         Address address = criarAddress();
         em.persist(address);
         em.flush();
-        
+        assertNotNull(address.getId());
+     
     }
    
     

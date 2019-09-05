@@ -39,8 +39,12 @@ public class Project implements Serializable{
 
     public Project() {
     }
-   
 
+    public Integer getId() {
+        return id;
+    }
+   
+    
     public String getProjectName() {
         return projectName;
     }

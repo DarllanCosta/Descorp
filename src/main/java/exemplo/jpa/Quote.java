@@ -52,6 +52,10 @@ public class Quote implements Serializable{
 
     public Quote() {
     }
+
+    public Integer getId() {
+        return id;
+    }
      
 
     public Integer getIsSelected() {

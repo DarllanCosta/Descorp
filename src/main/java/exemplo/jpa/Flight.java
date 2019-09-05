@@ -55,6 +55,12 @@ public class Flight implements Serializable{
     public Flight() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+    
+    
+
     public String getProvider() {
         return provider;
     }

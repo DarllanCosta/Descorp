@@ -66,6 +66,12 @@ public class User implements Serializable {
 
     public User() {
     }
+
+    public Integer getId() {
+        return id;
+    }
+    
+
      
     public String getName() {
         return name;

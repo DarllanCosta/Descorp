@@ -51,6 +51,19 @@ public class Agency implements Serializable{
     public Agency() {
     }
 
+    public Integer getId() {
+        return Id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public List<Quote> getQuotes() {
+        return quotes;
+    }
+    
+
     public String getAgencyName() {
         return agencyName;
     }

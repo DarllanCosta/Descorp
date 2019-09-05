@@ -57,6 +57,13 @@ public class Itinerary implements Serializable{
     public Itinerary() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+    
+    
+
+    
     public String getDeparture() {
         return departure;
     }

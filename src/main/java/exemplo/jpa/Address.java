@@ -39,8 +39,12 @@ public class Address implements Serializable{
 
     public Address() {
     }
-    
 
+    public Integer getId() {
+        return id;
+    }
+    
+    
     public String getStreet() {
         return street;
     }

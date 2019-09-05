@@ -35,6 +35,32 @@ public class Bank_Details implements Serializable{
     @Column(name = "TXT_AGENCY_TYPE", nullable = false, length = 10)
     String account_Type;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAccount_Name() {
+        return account_Name;
+    }
+
+    public void setAccount_Name(String account_Name) {
+        this.account_Name = account_Name;
+    }
+
+    public String getAccount_Number() {
+        return account_Number;
+    }
+
+    public void setAccount_Number(String account_Number) {
+        this.account_Number = account_Number;
+    }
+    
+    
+
     public Bank_Details() {
     }
 

@@ -47,6 +47,10 @@ public class Hotel implements Serializable {
 
     public Hotel() {
     }
+
+    public Integer getId() {
+        return id;
+    }
     
     
     
