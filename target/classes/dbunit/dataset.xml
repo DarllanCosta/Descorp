@@ -118,6 +118,7 @@
    
     <TB_USER_PROJECT id_user="04" id_project="04"/>
    
-       
+    <ADDRESS txt_street="Rua dos bobos" postal_code="645523125" txt_state="Pernambuco" 
+            txt_neighborhood="Pacheco" number="222"/>
     
 </dataset>

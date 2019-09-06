@@ -8,6 +8,7 @@ package exemplo.jpa.test;
 import exemplo.jpa.Address;
 import static exemplo.jpa.test.GenericTest.logger;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Test;
 
 /**
@@ -26,7 +27,16 @@ public class AddressCrudTest extends GenericTest {
         assertNotNull(address.getId());
      
     }
-   
+    
+     @Test
+    public void removerAddress() {
+        logger.info("Executando removerAddress()");
+        Address address = em.find(Address.class, 9);
+        assertNotNull(address);
+        em.remove(address);
+        address = em.find(Address.class, 9);
+        assertNull(address);
+    }
     
     private Address criarAddress(){
         Address newAddress = new Address();
