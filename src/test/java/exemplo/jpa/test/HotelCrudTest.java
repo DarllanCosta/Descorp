@@ -11,9 +11,15 @@ import exemplo.jpa.Flight;
 import exemplo.jpa.Hotel;
 import exemplo.jpa.Itinerary;
 import exemplo.jpa.Quote;
+import static exemplo.jpa.test.GenericTest.logger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import javax.persistence.CacheRetrieveMode;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import org.junit.Test;
 
 /**
@@ -34,6 +40,61 @@ public class HotelCrudTest extends GenericTest{
         
     }
     
+    @Test
+    public void atualizarHotel() {
+
+        logger.info("Atualizando Hotel");
+        
+        String newName = "HOTEL MARITIMO";
+        Integer nStars = 3;
+        
+        
+        Hotel hotel = em.find(Hotel.class, 1);
+        hotel.setName(newName);
+        hotel.setnStars(nStars);
+        
+        em.flush();
+        em.clear();
+        
+        hotel = em.find(Hotel.class, 1);
+        assertEquals(newName, hotel.getName());
+        assertEquals(nStars, hotel.getnStars());
+        
+
+    }
+   
+    @Test
+    public void atualizarClienteUsuarioMerge() {
+        
+        logger.info("Atualizando Hotel com merge");
+        String newName = "HOTEL terrestre";
+        Integer nStars = 4;
+        Hotel hotel = em.find(Hotel.class, 2);
+        hotel.setName(newName);
+        hotel.setnStars(nStars);
+        em.clear();
+        em.merge(hotel);
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("javax.persistance.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        hotel = em.find(Hotel.class, 2, properties);
+        assertEquals(newName, hotel.getName());
+        assertEquals(nStars, hotel.getnStars());
+
+    }
+    
+    
+    
+    
+    @Test
+    public void removerHotel(){
+        logger.info("Executando removerHotel()");
+        Hotel hotel = em.find(Hotel.class, 5);
+        assertNotNull(hotel);
+        em.remove(hotel);
+        hotel = em.find(Hotel.class, 5);
+        assertNull(hotel);
+        
+    }
     
     
     private Hotel criarHotel(){
@@ -68,11 +129,7 @@ public class HotelCrudTest extends GenericTest{
           
         List<Quote> quotes = new ArrayList<>();       
         quotes.add(quote);
-   
-        
-        
-        
-        
+          
         hotel.setName(nomeHotel);
         hotel.setnStars(nStars);
         hotel.setAddress(newAddress);
