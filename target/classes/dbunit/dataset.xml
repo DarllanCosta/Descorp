@@ -121,6 +121,10 @@
     <ADDRESS txt_street="Rua dos bobos" postal_code="645523125" txt_state="Pernambuco" 
             txt_neighborhood="Pacheco" number="222"/>
     
-    <HOTEL txt_name="Meridional" number_stars="2" id_address="02"/><Hotel>
+    <ADDRESS txt_street="Rua da insonia" postal_code="67890121" txt_state="Pernambuco" 
+            txt_neighborhood="Jd Sao Paulo" number="221"/>
+
+    
+    <HOTEL txt_name="Meridional" number_stars="2" id_address="10"/>
     
 </dataset>

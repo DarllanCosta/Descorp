@@ -64,13 +64,13 @@ public class HotelCrudTest extends GenericTest{
     }
    
     @Test
-    public void atualizarClienteUsuarioMerge() {
+    public void atualizarHotelMerge() {
         
         logger.info("Atualizando Hotel com merge");
         String newName = "HOTEL terrestre";
         Integer nStars = 4;
         Hotel hotel = em.find(Hotel.class, 2);
-        hotel.setName(newName);
+            hotel.setName(newName);
         hotel.setnStars(nStars);
         em.clear();
         em.merge(hotel);
