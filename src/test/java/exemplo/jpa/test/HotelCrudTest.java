@@ -6,7 +6,10 @@
 package exemplo.jpa.test;
 
 import exemplo.jpa.Address;
+import exemplo.jpa.Agency;
+import exemplo.jpa.Flight;
 import exemplo.jpa.Hotel;
+import exemplo.jpa.Itinerary;
 import exemplo.jpa.Quote;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,15 +55,21 @@ public class HotelCrudTest extends GenericTest{
         //quote
         
         Quote quote = new Quote();
+        quote.setStatus("Aproved");
         quote.setIsSelected(0);
-        quote.setStatus("Aguardando Aprovação");
+        Agency agency = em.find(Agency.class, 1);
+        quote.setAgency(agency);
+        Flight flight = em.find(Flight.class, 1);
+        quote.setFlight(flight);
+        Itinerary itinerary = em.find(Itinerary.class, 1);
+        quote.setItinerary(itinerary);  
+        quote.setHotel(hotel);
         
-        Quote quote2 = new Quote();
-        quote.setIsSelected(1);
-        quote.setStatus("Aguardando Aprovação");  
+          
         List<Quote> quotes = new ArrayList<>();       
         quotes.add(quote);
-        quotes.add(quote2);
+   
+        
         
         
         
