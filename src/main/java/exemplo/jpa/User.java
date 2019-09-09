@@ -7,11 +7,15 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -21,9 +25,12 @@ import javax.persistence.Table;
 
 
 @Entity
-@Access(AccessType.FIELD)
 @Table(name = "USER_TABLE")
-public class User implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED) 
+@DiscriminatorColumn(name = "DISC_USUARIO",
+        discriminatorType = DiscriminatorType.STRING, length = 1)
+@Access(AccessType.FIELD)
+public abstract class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
@@ -38,23 +45,10 @@ public class User implements Serializable {
     @Column(name = "TXT_EMAIL", length = 50,nullable = false)
     String email;
    
-    
-    
-    //mapeamento 1 pra 1 de usuário para conta bancária
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true)
-    @JoinColumn(name = "ID_BANK_DETAILS", referencedColumnName = "ID")
-    private Bank_Details bank_Details;
-    
     //mapeamento 1 pra 1 de usuário para Endereço
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
-    private Address address;
-
-    
-    //mapeamento 1 pra n de usuário para requests
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Request> requests;
-    
+    private Address address; 
     
     //mapeamento n pra n de usuário para projetos
     @ManyToMany(fetch = FetchType.LAZY)
@@ -113,28 +107,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Bank_Details getBank_Details() {
-        return bank_Details;
-    }
-
-    public void setBank_Details(Bank_Details bank_Details) {
-        this.bank_Details = bank_Details;
-    }
-
     public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public List<Request> getRequests() {
-        return requests;
-    }
-
-    public void setRequests(List<Request> requests) {
-        this.requests = requests;
     }
 
     public List<Project> getProjetos() {
