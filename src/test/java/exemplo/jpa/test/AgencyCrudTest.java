@@ -5,7 +5,6 @@
  */
 package exemplo.jpa.test;
 
-import exemplo.jpa.Address;
 import exemplo.jpa.Agency;
 import static exemplo.jpa.test.GenericTest.logger;
 import java.util.HashMap;
@@ -61,18 +60,20 @@ public class AgencyCrudTest extends GenericTest {
     public void atualizarAgencyMerge() {
         
         logger.info("Atualizando agency com merge");
-        Integer newNumber = 55;
-        String newNeighborhood = "Linha do Tiro";
-        Address address = em.find(Address.class, 2);
-        address.setNumber(newNumber);
-        address.setNeighborhood(newNeighborhood);
+        
+        
+        String newEmail = "Teste@ifpe.com";
+        String newName = "Agostinho";
+        Agency agency = em.find(Agency.class, 2);
+        agency.setEmail(newEmail);
+        agency.setAgencyName(newName);
         em.clear();
-        em.merge(address);
+        em.merge(agency);
         Map<String, Object> properties = new HashMap<>();
         properties.put("javax.persistance.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        address = em.find(Address.class, 2, properties);
-        assertEquals(newNumber, address.getNumber());
-        assertEquals(newNeighborhood, address.getNeighborhood());
+        agency = em.find(Agency.class, 2, properties);
+        assertEquals(newEmail, agency.getEmail());
+        assertEquals(newName, agency.getAgencyName());
 
     }
        

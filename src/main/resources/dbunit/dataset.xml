@@ -15,11 +15,11 @@
     <HOTEL txt_name="holiday" number_stars="5" id_address="2"/>
     
     
-    <PROJECT disc_project = "C" txt_project_name="travel" project_budget="1555" txt_project_description="Sistema de viagens"/>
+    <PROJECT_TABLE disc_project = "C" txt_project_name="travel" project_budget="1555" txt_project_description="Sistema de viagens"/>
     
-    <PROJECTCLIENTE clientName = "Marcos" allocation = "true"/>
+    <TB_PROJECTCLIENTE id = "01" clientName = "Marcos" allocation = "true"/>
     
-    <USER_TABLE id = "01" txt_name="enilsu" username="Enilsinho" password="0215612" txt_phone="956626355" txt_email="enilsu@ifpe.com"/>
+    <USER_TABLE  txt_name="enilsu" username="Enilsinho" password="0215612" txt_phone="956626355" txt_email="enilsu@ifpe.com"/>
     
     <REQUEST travel_date="2019-09-29" txt_justification="Vai render grana" until_Date="2019-10-05" txt_departure="Recife" id_user="01"/>
     
@@ -46,9 +46,9 @@
     
     
   
-    <PROJECT disc_project = "C" txt_project_name="travler" project_budget="553" txt_project_description="Sistema de viagens"/>
+    <PROJECT_TABLE disc_project = "C" txt_project_name="travler" project_budget="553" txt_project_description="Sistema de viagens"/>
     
-    <PROJECTCLIENTE id = "02" clientName = "victor" allocation = "true"/>
+    <TB_PROJECTCLIENTE id = "02" clientName = "victor" allocation = "true"/>
     
       <USER_TABLE txt_name="Darllan" username="darllanzinho" password="54965954" txt_phone="549594965" txt_email="dllan@ifpe.com"/>
     
@@ -76,9 +76,9 @@
     <HOTEL txt_name="Continental" number_stars="5" id_address="06"/>
     
   
-    <PROJECT txt_project_name="Techpark" project_budget="14855" txt_project_description="Sistema de vagas para estacionamento"/>
+    <PROJECT_TABLE disc_project = "I" txt_project_name="Techpark" project_budget="14855" txt_project_description="Sistema de vagas para estacionamento"/>
     
-    <INTERNALPROJECT id = "03" startdate = "2019-09-05" finaldate = "2019-09-05" department = "ti">
+    <TB_INTERNALPROJECT id = "03" startdate = "2019-09-05" finaldate = "2019-09-05" department = "ti"/>
         
    <USER_TABLE txt_name="joão victor" username="pedjoao" password="9654846" txt_phone="9856795287" txt_email="jv@ifpe.com"/>
     
@@ -107,9 +107,9 @@
     
     
   
-    <PROJECT txt_project_name="truetravel" project_budget="1987" txt_project_description="Sistema de viagens"/>
-    
-    <INTERNALPROJECT id = "04" startdate = "2019-09-05" finaldate = "2019-09-05" department = "Finanças">
+    <PROJECT_TABLE disc_project = "I" txt_project_name="truetravel" project_budget="1987" txt_project_description="Sistema de viagens"/>
+
+    <TB_INTERNALPROJECT id = "04" startdate = "2019-09-05" finaldate = "2019-09-05" department = "Finanças"/>
     
     <USER_TABLE txt_name="Guilherme" username="last" password="9464818" txt_phone="8485594579" txt_email="last@ifpe.com"/>
     
