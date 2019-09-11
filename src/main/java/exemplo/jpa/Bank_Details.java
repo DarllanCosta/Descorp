@@ -64,22 +64,6 @@ public class Bank_Details implements Serializable{
     public Bank_Details() {
     }
 
-    public String getAcount_Name() {
-        return account_Name;
-    }
-
-    public void setAcount_Name(String acount_Name) {
-        this.account_Name = acount_Name;
-    }
-
-    public String getAcount_Number() {
-        return account_Number;
-    }
-
-    public void setAcount_Number(String acount_Number) {
-        this.account_Number = acount_Number;
-    }
-
     public String getAccount_Agency() {
         return account_Agency;
     }
