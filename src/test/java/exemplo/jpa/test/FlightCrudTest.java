@@ -35,9 +35,9 @@ public class FlightCrudTest extends GenericTest {
     }
     
     @Test
-    public void atualizarAgency() {
+    public void atualizarFlight() {
 
-        logger.info("Atualizando Address");
+        logger.info("Atualizando Flight");
         String NewDeparture = "Bahia";
         String newDestination = "São Paulo";
         String newNumber = "v584854";
@@ -67,9 +67,9 @@ public class FlightCrudTest extends GenericTest {
     }
    
     @Test
-    public void atualizarAgencyMerge() {
+    public void atualizarFlightMerge() {
         
-        logger.info("Atualizando agency com merge");
+        logger.info("Atualizando Flight com merge");
         
         Calendar newDate = Calendar.getInstance();
         newDate.set(Calendar.YEAR,2019);
@@ -103,8 +103,8 @@ public class FlightCrudTest extends GenericTest {
     }
        
     @Test
-    public void removerAgency() {
-        logger.info("Executando removerAddress()");
+    public void removerFlight() {
+        logger.info("Executando removerFlight()");
         Flight flight = em.find(Flight.class, 3);
         assertNotNull(flight);
         em.remove(flight);

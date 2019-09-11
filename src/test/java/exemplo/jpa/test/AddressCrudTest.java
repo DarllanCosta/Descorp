@@ -57,7 +57,7 @@ public class AddressCrudTest extends GenericTest {
     }
    
     @Test
-    public void atualizarClienteUsuarioMerge() {
+    public void atualizarAddressMerge() {
         
         logger.info("Atualizando Address com merge");
         Integer newNumber = 55;

@@ -35,7 +35,7 @@ public class AgencyCrudTest extends GenericTest {
     @Test
     public void atualizarAgency() {
 
-        logger.info("Atualizando Address");
+        logger.info("Atualizando Agency");
         
         String newName = "crudtestename";
         String newEmail = "TesteEmail@gmail.com";
@@ -79,7 +79,7 @@ public class AgencyCrudTest extends GenericTest {
        
     @Test
     public void removerAgency() {
-        logger.info("Executando removerAddress()");
+        logger.info("Executando removerAgency()");
         Agency agency = em.find(Agency.class, 3);
         assertNotNull(agency);
         em.remove(agency);

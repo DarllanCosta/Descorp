@@ -75,8 +75,8 @@ public class Bank_DetailsCrudTest extends GenericTest {
     }
        
     @Test
-    public void removerAddress() {
-        logger.info("Executando removerAddress()");
+    public void removerBank() {
+        logger.info("Executando removerBank()");
         Bank_Details bank = em.find(Bank_Details.class, 3);
         assertNotNull(bank);
         em.remove(bank);
