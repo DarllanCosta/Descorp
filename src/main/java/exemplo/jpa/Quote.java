@@ -35,19 +35,19 @@ public class Quote implements Serializable{
     @Column(name = "TXT_STATUS", nullable = false)
     String Status;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL  , optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}  , optional = false)
     @JoinColumn(name = "ID_ITINERARY", referencedColumnName = "ID")
     private Itinerary itinerary;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, optional = false)
     @JoinColumn(name = "ID_AGENCY", referencedColumnName = "ID")
     private Agency agency;
      
-     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL, optional = false)
+     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, optional = false)
     @JoinColumn(name = "ID_FLIGHT", referencedColumnName = "ID")
     private Flight flight;
       
-       @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL, optional = true)
+       @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, optional = true)
     @JoinColumn(name = "ID_HOTEL", referencedColumnName = "ID")
     private Hotel hotel;
 

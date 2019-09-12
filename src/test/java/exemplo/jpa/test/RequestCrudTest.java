@@ -29,7 +29,7 @@ public class RequestCrudTest extends GenericTest {
     @Test
     public void persistirRequest() {
         
-        logger.info("Executando persistirAddress()");
+        logger.info("Executando persistirRequest()");
         Request request = criarRequest();
         em.persist(request);
         em.flush();
@@ -85,7 +85,7 @@ public class RequestCrudTest extends GenericTest {
        
     @Test
     public void removerRequest() {
-        logger.info("Executando removerAddress()");
+        logger.info("Executando removerRequest()");
         Request request = em.find(Request.class, 4);
         assertNotNull(request);
         em.remove(request);
