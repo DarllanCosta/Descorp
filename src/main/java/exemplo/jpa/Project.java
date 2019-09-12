@@ -27,7 +27,7 @@ import javax.persistence.Table;
  * @author ALUNO
  */
 @Entity
-@Table(name = "Project_table")
+@Table(name = "PROJECT_TABLE")
 @Inheritance(strategy = InheritanceType.JOINED) 
 @DiscriminatorColumn(name = "DISC_PROJECT",
         discriminatorType = DiscriminatorType.STRING, length = 1)

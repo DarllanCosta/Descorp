@@ -28,7 +28,7 @@ public class ProjectClienteCrudTest extends GenericTest{
     @Test
     public void persistirProjectCliente(){
         logger.info("Executando persistirProjectCliente()");
-        ProjectCliente project = new ProjectCliente();
+        ProjectCliente project = criarProjectClient();
          em.persist(project);
          em.flush();
          assertNotNull(project.getId());
@@ -85,10 +85,10 @@ public class ProjectClienteCrudTest extends GenericTest{
     @Test
     public void removerProjectCliente(){
         logger.info("Executando removerProjectCliente()");
-        ProjectCliente project = em.find(ProjectCliente.class, 5);
+        ProjectCliente project = em.find(ProjectCliente.class, 2);
         assertNotNull(project);
         em.remove(project);
-        project = em.find(ProjectCliente.class, 5);
+        project = em.find(ProjectCliente.class, 2);
         assertNull(project);
         
     }
