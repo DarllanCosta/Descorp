@@ -11,19 +11,28 @@ import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author ALUNO
  */
 @Entity
+@Table(name = "PROJECT_TABLE")
+@Inheritance(strategy = InheritanceType.JOINED) 
+@DiscriminatorColumn(name = "DISC_PROJECT",
+        discriminatorType = DiscriminatorType.STRING, length = 1)
 @Access(AccessType.FIELD)
-public class Project implements Serializable{
+public abstract class Project implements Serializable{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    Integer id;

@@ -89,6 +89,11 @@ public class Agency implements Serializable{
         this.phone = phone;
     }
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 7;

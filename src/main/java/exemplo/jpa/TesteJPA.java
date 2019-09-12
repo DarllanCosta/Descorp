@@ -7,7 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class TesteJPA {
-
+/*
     public static void main(String[] args) {
         User usuario = new User();
         preencherUsuario(usuario);
@@ -38,5 +38,5 @@ public class TesteJPA {
         usuario.setUsername("fulano@gmail.com");
         usuario.setPassword("fulano");
         
-    }
+    }*/
 }
