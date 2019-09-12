@@ -90,7 +90,7 @@ public class QuoteCrudTest extends GenericTest {
     }
        
     @Test
-    public void removerQuotet() {
+    public void removerQuote() {
         logger.info("Executando removerQuote()");
         Quote quote = em.find(Quote.class, 4);
         assertNotNull(quote);
@@ -104,14 +104,12 @@ public class QuoteCrudTest extends GenericTest {
         
         
         
-        //criar Agency
-        Agency agency = new Agency();
-        agency.setAgencyName("Agencia Teste");
+        //Agency
+        Agency agency = em.find(Agency.class, 1);
         quote.setAgency(agency);
         
-        //criar Flight
-        Flight flight = new Flight();
-        flight.setNumber("24A");
+        // Flight
+        Flight flight = em.find(Flight.class, 1);;
         quote.setFlight(flight);
         
         quote.setIsSelected(0);

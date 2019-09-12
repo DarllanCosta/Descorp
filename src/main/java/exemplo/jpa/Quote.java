@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,19 +35,19 @@ public class Quote implements Serializable{
     @Column(name = "TXT_STATUS", nullable = false)
     String Status;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL  , optional = false)
     @JoinColumn(name = "ID_ITINERARY", referencedColumnName = "ID")
     private Itinerary itinerary;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "ID_AGENCY", referencedColumnName = "ID")
     private Agency agency;
      
-     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "ID_FLIGHT", referencedColumnName = "ID")
     private Flight flight;
       
-       @ManyToOne(fetch = FetchType.LAZY, optional = true)
+       @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "ID_HOTEL", referencedColumnName = "ID")
     private Hotel hotel;
 
