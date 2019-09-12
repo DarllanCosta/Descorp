@@ -41,7 +41,7 @@ public class ProjectClienteCrudTest extends GenericTest{
         logger.info("Atualizando ProjectCliente");
         
         String newClienteName = "Beatriz";
-        String newProjectName = "é incrivel";
+        String newProjectName = "Fazer a vida Incrível";
         
         
         ProjectCliente project = em.find(ProjectCliente.class, 1);

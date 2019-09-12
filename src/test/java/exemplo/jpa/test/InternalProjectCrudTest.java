@@ -41,22 +41,18 @@ public class InternalProjectCrudTest extends GenericTest{
 
         logger.info("Atualizando ProjectCliente");
         
-        Calendar newDate = Calendar.getInstance();
-        newDate.set(Calendar.YEAR,2019);
-        newDate.set(Calendar.MONTH, Calendar.NOVEMBER);
-        newDate.set(Calendar.DAY_OF_MONTH, 15);
+       
         String newProjectName = "Testando InternalProject";
         
         
         InternalProject project = em.find(InternalProject.class, 3);
         project.setProjectName(newProjectName);
-        project.setStartDate(newDate.getTime());
+       
         
         em.flush();
         em.clear();
         
         project = em.find(InternalProject.class, 3);
-       //assertEquals(newDate.getTime(), project.getStartDate());
         assertEquals(newProjectName, project.getProjectName());
         
 
