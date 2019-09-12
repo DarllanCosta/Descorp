@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author marcos
+ * @author Guilherme
  */
 public class GenericTest {
 
