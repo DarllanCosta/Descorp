@@ -19,12 +19,24 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "userQueryJoin",
+                    query = "SELECT a FROM Address a INNER JOIN user_table u ON a.id = u.id_address IN "
+                            + "(SELECT users FROM user_table users INNER JOIN projects p ON p.id = users.id_project "
+                            + "INNER JOIN bank_details b ON b.id = users.id_bank_details) "
+            )
+        }
+)
 @Table(name = "USER_TABLE")
 public class User implements Serializable {
     @Id
