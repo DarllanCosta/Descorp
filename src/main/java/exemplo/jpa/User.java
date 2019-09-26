@@ -31,9 +31,7 @@ import javax.persistence.Table;
         {
             @NamedQuery(
                     name = "userQueryJoin",
-                    query = "SELECT a FROM Address a INNER JOIN user_table u ON a.id = u.id_address IN "
-                            + "(SELECT users FROM user_table users INNER JOIN projects p ON p.id = users.id_project "
-                            + "INNER JOIN bank_details b ON b.id = users.id_bank_details) "
+                    query = "SELECT u.id FROM user_table u INNER JOIN  Address a ON a.id = u.id_address INNER JOIN bank_details b ON b.id = u.id_bank_details"
             )
         }
 )
