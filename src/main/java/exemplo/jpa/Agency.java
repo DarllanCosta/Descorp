@@ -20,6 +20,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 /**
  *
@@ -32,9 +35,15 @@ public class Agency implements Serializable{
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    Integer Id;
    @Column(name = "TXT_AGENCY_NAME", nullable = false, length = 255)
+   @NotNull
+   @Size(max = 255)
    String agencyName;
    @Column(name = "TXT_EMAIL", nullable = false, length = 50)
+   @Email
+   @NotNull
    String email;
+   @NotNull
+   @Size(max = 14)
    @Column(name = "TXT_PHONE")
    String phone; 
    

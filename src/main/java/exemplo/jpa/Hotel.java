@@ -20,6 +20,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -32,6 +34,8 @@ public class Hotel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @Column(name = "TXT_NAME", nullable = false,length = 255)
+    @NotNull
+    @Size(max = 30)
     String name;
     @Column(name = "NUMBER_STARS", length = 5)
     Integer nStars;    

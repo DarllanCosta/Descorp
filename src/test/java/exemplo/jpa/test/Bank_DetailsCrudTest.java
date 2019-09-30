@@ -38,7 +38,7 @@ public class Bank_DetailsCrudTest extends GenericTest {
         logger.info("Atualizando Bank_Detail");
         
         String newname = "joao";
-        String newNumber = "54280080";
+        String newNumber = "6765878765654454";
         String newAgency = "Paraiba";
         
         Bank_Details bank = em.find(Bank_Details.class, 1);
@@ -88,8 +88,9 @@ public class Bank_DetailsCrudTest extends GenericTest {
         Bank_Details bank = new Bank_Details();
         bank.setAccount_Agency("Bradesco");
         bank.setAccount_Name("Darllan");
-        bank.setAccount_Number("251245412");
+        bank.setAccount_Number("6062878787878787");
         bank.setAccount_Type("Corrente");
+        
         return bank;
      
         

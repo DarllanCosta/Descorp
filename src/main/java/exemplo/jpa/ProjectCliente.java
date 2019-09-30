@@ -11,6 +11,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -23,6 +25,8 @@ import javax.persistence.Table;
 public class ProjectCliente extends Project implements Serializable{
     
     @Column(name = "ClientName")
+    @NotNull
+    @Size(max = 30)
     String clientName;
     @Column(name ="Allocation")
     Boolean allocation;

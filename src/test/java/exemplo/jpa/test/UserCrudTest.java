@@ -105,12 +105,11 @@ public class UserCrudTest extends GenericTest {
         User newUser = new User();
         newUser.setEmail("User@ifpe.com");
         newUser.setName("CrudTeste");
-        newUser.setPassword("123");
+        newUser.setPassword("123453");
         newUser.setPhone("81 999548654");
         newUser.setUsername("TestandoOCrud");
         newUser.setAddress(criarAddress());
         newUser.setBank_Details(criarBank());
-        newUser.setProjetos(criarProject());
         newUser.setRequests(criarRequest());
         
         
@@ -122,7 +121,7 @@ public class UserCrudTest extends GenericTest {
         Bank_Details bank = new Bank_Details();
         bank.setAccount_Agency("caixa");
         bank.setAccount_Name("CrudTeste");
-        bank.setAccount_Number("12345");
+        bank.setAccount_Number("6062878787878787");
         bank.setAccount_Type("Corrente");
         return bank;
     }
@@ -138,22 +137,12 @@ public class UserCrudTest extends GenericTest {
         return ad;
     }
     
-    private List<Project> criarProject(){
-        List<Project> projects = new ArrayList<>();
-        ProjectCliente project = new ProjectCliente();
-        project.setProjectName("TesteCrud");
-        project.setDescription("Testando");
-        project.setProjectBudget(1545.0);
-        project.setAllocation(true);
-        project.setClientName("TesteCrud");
-        return projects;       
-    }
     
     private List<Request> criarRequest(){
         
         List<Request> requests = new ArrayList<>();
         Calendar newDate = Calendar.getInstance();
-        newDate.set(Calendar.YEAR,2019);
+        newDate.set(Calendar.YEAR,2020);
         newDate.set(Calendar.MONTH, Calendar.SEPTEMBER);
         newDate.set(Calendar.DAY_OF_MONTH, 5);
         Request request = new Request();

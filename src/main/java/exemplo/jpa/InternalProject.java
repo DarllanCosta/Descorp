@@ -14,6 +14,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -27,6 +28,7 @@ public class InternalProject extends Project implements Serializable{
     
     @Column(name = "StartDate")
     @Temporal(TemporalType.DATE)
+    @NotNull
     Date startDate;
     
     @Column(name = "FinalDate")
@@ -34,6 +36,7 @@ public class InternalProject extends Project implements Serializable{
     Date finalDate;
     
     @Column(name = "department")
+    @NotNull
     String department;
 
     public InternalProject() {

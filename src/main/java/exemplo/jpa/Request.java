@@ -23,6 +23,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -35,14 +38,20 @@ public class Request implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @NotNull
+    @Future
     @Column(name = "TRAVEL_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     Date travelDate;
+    @Size(max = 255)
     @Column(name = "TXT_JUSTIFICATION", length = 255)
     String justification;
     @Column(name = "UNTIL_DATE", nullable = false)
+    @Future
     @Temporal(TemporalType.DATE)
     Date untilDate;
+    @NotNull
+    @Size(max = 50)
     @Column(name = "TXT_DEPARTURE", length = 50, nullable = false)
     String departure;
     

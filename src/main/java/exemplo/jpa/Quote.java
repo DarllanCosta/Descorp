@@ -18,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -30,9 +31,11 @@ public class Quote implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @NotNull
     @Column(name = "IS_SELECTED", nullable = false)
     Integer isSelected;
     @Column(name = "TXT_STATUS", nullable = false)
+    @NotNull
     String Status;
     
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}  , optional = false)

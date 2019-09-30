@@ -21,6 +21,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -36,11 +38,15 @@ public abstract class Project implements Serializable{
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    Integer id;
+   @NotNull
+   @Size(max = 50)
    @Column(name = "TXT_PROJECT_NAME", nullable = false, length = 50)
    String projectName;
+   @NotNull
    @Column(name = "PROJECT_BUDGET", nullable = false)
    Double projectBudget;
    @Column(name = "TXT_PROJECT_DESCRIPTION", length = 255)
+   @Size(max = 255)
    String description;
    
    @ManyToMany(mappedBy = "projetos")

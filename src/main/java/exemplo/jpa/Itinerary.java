@@ -23,6 +23,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -34,14 +37,20 @@ public class Itinerary implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @NotNull
+    @Size(max = 30)
     @Column(name = "TXT_DEPARTURE", nullable = false)
     String departure;
+    @NotNull
+    @Size(max = 30)
     @Column(name = "TXT_DESTINATION", nullable = false)
     String destination;
     @Column(name = "CHECKIN_DATE", nullable = false)
+    @Future
     @Temporal(TemporalType.DATE)
     Date checkInDate;
     @Column(name = "CHECKOUT_DATE", nullable = false)
+    @Future
     @Temporal(TemporalType.DATE)        
     Date checkOutDate;
     

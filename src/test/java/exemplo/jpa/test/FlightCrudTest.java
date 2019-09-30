@@ -73,7 +73,7 @@ public class FlightCrudTest extends GenericTest {
         
         Calendar newDate = Calendar.getInstance();
         newDate.set(Calendar.YEAR,2019);
-        newDate.set(Calendar.MONTH, Calendar.OCTOBER);
+        newDate.set(Calendar.MONTH, Calendar.DECEMBER);
         newDate.set(Calendar.DAY_OF_MONTH, 12);
         String NewDeparture = "mato grosso";
         String newDestination = "rio de janeiro";
@@ -116,7 +116,7 @@ public class FlightCrudTest extends GenericTest {
         Flight newFlight = new Flight();
         Calendar newDate = Calendar.getInstance();
         newDate.set(Calendar.YEAR,2019);
-        newDate.set(Calendar.MONTH, Calendar.SEPTEMBER);
+        newDate.set(Calendar.MONTH, Calendar.NOVEMBER);
         newDate.set(Calendar.DAY_OF_MONTH, 5);
         newFlight.setProvider("IFPETRAVEL");
         newFlight.setCheckin(newDate.getTime());

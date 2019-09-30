@@ -64,7 +64,7 @@ public class InternalProjectCrudTest extends GenericTest{
         logger.info("Atualizando InternalProject com merge");
         
         Calendar newDate = Calendar.getInstance();
-         newDate.set(Calendar.YEAR,2019);
+         newDate.set(Calendar.YEAR,2020);
          newDate.set(Calendar.MONTH, Calendar.DECEMBER);
          newDate.set(Calendar.DAY_OF_MONTH, 15);
         String newDescription = "apenas mais um teste";
@@ -103,7 +103,7 @@ public class InternalProjectCrudTest extends GenericTest{
         
          InternalProject project = new InternalProject();
          Calendar newDate = Calendar.getInstance();
-         newDate.set(Calendar.YEAR,2019);
+         newDate.set(Calendar.YEAR,2020);
          newDate.set(Calendar.MONTH, Calendar.SEPTEMBER);
          newDate.set(Calendar.DAY_OF_MONTH, 5);
          project.setStartDate(newDate.getTime());
@@ -112,6 +112,7 @@ public class InternalProjectCrudTest extends GenericTest{
          project.setDescription("Projeto que pode render uma ótima parceiria");
          project.setProjectBudget(5684.00);
          project.setProjectName("Code Geass");
+         project.setDepartment("ti");
       
         
         return project;

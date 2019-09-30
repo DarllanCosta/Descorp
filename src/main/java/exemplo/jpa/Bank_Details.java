@@ -14,6 +14,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.CreditCardNumber;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -26,13 +30,19 @@ public class Bank_Details implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @NotNull
     @Column(name = "TXT_ACCOUNT_NAME", nullable = false, length = 255)
     String account_Name;
-    @Column(name = "TXT_ACCOUNT_NUMBER", nullable = false, length = 20)
+    @CreditCardNumber
+    @NotNull
+    @Size(max = 50)
+    @Column(name = "TXT_ACCOUNT_NUMBER", nullable = false, length = 50)
     String account_Number;
+    @NotNull
     @Column(name = "TXT_ACCOUNT_AGENCY", nullable = false)
     String account_Agency;
-    @Column(name = "TXT_ACCOUNT_TYPE", nullable = false, length = 10)
+    @NotNull
+    @Column(name = "TXT_ACCOUNT_TYPE", nullable = false, length = 255)
     String account_Type;
 
     public Integer getId() {

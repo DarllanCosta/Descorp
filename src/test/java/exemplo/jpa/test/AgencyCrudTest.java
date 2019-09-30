@@ -90,7 +90,7 @@ public class AgencyCrudTest extends GenericTest {
     private Agency criarAgency(){
         Agency newAgency = new Agency();
         newAgency.setAgencyName("IFPE");
-        newAgency.setEmail("if@gmail.com");
+        newAgency.setEmail("ifpe@gmail.com");
         newAgency.setPhone("84956");
         return newAgency;
      

@@ -24,30 +24,45 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.eclipse.persistence.annotations.Noncacheable;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 
 @Entity
-@NamedQueries(
+/*@NamedQueries(
         {
             @NamedQuery(
                     name = "userQueryJoin",
                     query = "SELECT u.id FROM user_table u INNER JOIN  Address a ON a.id = u.id_address INNER JOIN bank_details b ON b.id = u.id_bank_details"
             )
         }
-)
+)*/
 @Table(name = "USER_TABLE")
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+    @NotNull
+    @Size(max = 50)
     @Column(name = "TXT_NAME", length = 50, nullable = false)
     String name;
+    @NotNull
+    @Size(max = 50)
     @Column(name = "USERNAME", length = 50, nullable = false, unique = true)
     String username;
-    @Column(name = "PASSWORD", length = 20, nullable = false)
+    @NotNull
+    @Size(min = 6, max = 50)
+    @Column(name = "PASSWORD", length = 50, nullable = false)
     String password;
     @Column(name = "TXT_PHONE", length = 20)
+    @NotNull
+    @Size(max = 14)
     String phone;
+    @NotNull
+    @Email
     @Column(name = "TXT_EMAIL", length = 50,nullable = false)
     String email;
    

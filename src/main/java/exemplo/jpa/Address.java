@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -29,14 +30,19 @@ public class Address implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @Column(name = "TXT_STREET", nullable = false, length = 255)
+    @NotNull
     String street;
     @Column(name = "POSTAL_CODE", nullable = false, length = 20)
+    @NotNull
     String postalCode;
     @Column(name = "TXT_NEIGHBORHOOD",   nullable = false, length = 20)
+    @NotNull
     String neighborhood;
     @Column(name = "TXT_STATE", nullable = false, length = 255)
+    @NotNull
     String state;
     @Column(name = "NUMBER", nullable = false)
+    @NotNull
     Integer number;
 
     public Address() {
