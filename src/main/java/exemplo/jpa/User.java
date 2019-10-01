@@ -32,14 +32,18 @@ import org.hibernate.validator.constraints.NotBlank;
 
 
 @Entity
-/*@NamedQueries(
+@NamedQueries(
         {
             @NamedQuery(
-                    name = "userQueryJoin",
-                    query = "SELECT u.id FROM user_table u INNER JOIN  Address a ON a.id = u.id_address INNER JOIN bank_details b ON b.id = u.id_bank_details"
+                    name = "user.porNome",
+                    query = "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id"
+            ),
+            @NamedQuery(
+                    name = "user.porUsername",
+                    query = "SELECT u FROM User u WHERE u.username LIKE :username ORDER BY u.id"
             )
         }
-)*/
+)
 @Table(name = "USER_TABLE")
 public class User implements Serializable {
     @Id

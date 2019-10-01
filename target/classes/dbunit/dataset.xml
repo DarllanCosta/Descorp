@@ -82,7 +82,7 @@
         
    <USER_TABLE txt_name="joão victor" username="pedjoao" password="9654846" txt_phone="9856795287" txt_email="jv@ifpe.com"/>
     
-    <REQUEST travel_date="2019-10-30" txt_justification="Vai render grana" until_Date="2019-10-05" txt_departure="Recife" id_user="03"/>
+    <REQUEST travel_date="2019-10-30" txt_justification="Vai render grana" until_Date="2019-10-31" txt_departure="Recife" id_user="03"/>
     
     <ITINERARY txt_departure="Recife" txt_destination="Bahia" checkin_date="2019-10-03" checkout_date="2019-10-05" id_request="03" />
     
@@ -113,7 +113,7 @@
     
     <USER_TABLE txt_name="Guilherme" username="last" password="9464818" txt_phone="8485594579" txt_email="last@ifpe.com"/>
     
-    <REQUEST travel_date="2019-10-29" txt_justification="Vai render grana" until_Date="2019-10-05" txt_departure="Recife" id_user="04"/>
+    <REQUEST travel_date="2019-10-29" txt_justification="Vai render grana" until_Date="2019-10-31" txt_departure="Recife" id_user="04"/>
     
     <ITINERARY  txt_departure="Recife" txt_destination="Bahia" checkin_date="2019-10-09" checkout_date="2019-10-15" id_request="04" />
     

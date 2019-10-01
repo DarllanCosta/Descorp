@@ -33,10 +33,12 @@ public class Hotel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @Column(name = "TXT_NAME", nullable = false,length = 255)
+    
     @NotNull
     @Size(max = 30)
+    @Column(name = "TXT_NAME", nullable = false,length = 255)
     String name;
+    
     @Column(name = "NUMBER_STARS", length = 5)
     Integer nStars;    
     

@@ -95,10 +95,10 @@ public class IntineraryCrudTest extends GenericTest {
     @Test
     public void removerItinerary() {
         logger.info("Executando removerItinerary()");
-        Itinerary itinerary = em.find(Itinerary.class, 2);
+        Itinerary itinerary = em.find(Itinerary.class, 3);
         assertNotNull(itinerary);
         em.remove(itinerary);
-        itinerary = em.find(Itinerary.class, 2);
+        itinerary = em.find(Itinerary.class, 3);
         assertNull(itinerary);
     }
     

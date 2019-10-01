@@ -43,7 +43,6 @@ public class Request implements Serializable{
     @Column(name = "TRAVEL_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     Date travelDate;
-    @Size(max = 255)
     @Column(name = "TXT_JUSTIFICATION", length = 255)
     String justification;
     @Column(name = "UNTIL_DATE", nullable = false)

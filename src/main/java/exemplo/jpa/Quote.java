@@ -31,26 +31,26 @@ public class Quote implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    @NotNull
+   // @NotNull
     @Column(name = "IS_SELECTED", nullable = false)
     Integer isSelected;
     @Column(name = "TXT_STATUS", nullable = false)
-    @NotNull
+   // @NotNull
     String Status;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}  , optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}  , optional = false)
     @JoinColumn(name = "ID_ITINERARY", referencedColumnName = "ID")
     private Itinerary itinerary;
     
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "ID_AGENCY", referencedColumnName = "ID")
     private Agency agency;
      
-     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, optional = false)
+     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL}, optional = false)
     @JoinColumn(name = "ID_FLIGHT", referencedColumnName = "ID")
     private Flight flight;
       
-       @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, optional = true)
+       @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.ALL}, optional = true)
     @JoinColumn(name = "ID_HOTEL", referencedColumnName = "ID")
     private Hotel hotel;
 

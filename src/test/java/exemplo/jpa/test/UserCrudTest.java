@@ -109,7 +109,6 @@ public class UserCrudTest extends GenericTest {
         newUser.setPhone("81 999548654");
         newUser.setUsername("TestandoOCrud");
         newUser.setAddress(criarAddress());
-        newUser.setBank_Details(criarBank());
         newUser.setRequests(criarRequest());
         
         
@@ -117,14 +116,6 @@ public class UserCrudTest extends GenericTest {
         return newUser; 
     }
     
-    private Bank_Details criarBank(){
-        Bank_Details bank = new Bank_Details();
-        bank.setAccount_Agency("caixa");
-        bank.setAccount_Name("CrudTeste");
-        bank.setAccount_Number("6062878787878787");
-        bank.setAccount_Type("Corrente");
-        return bank;
-    }
     
     private Address criarAddress(){
         Address ad = new Address();

@@ -44,52 +44,52 @@ public class RequestCrudTest extends GenericTest {
         String newJustification = "Conhecer nova filial";
         String newDeparture = "Jaboatao";
         
-        Request request = em.find(Request.class, 2);
+        Request request = em.find(Request.class, 1);
         request.setDeparture(newDeparture);
         request.setJustification(newJustification);
         
         em.flush();
         em.clear();
         
-        request = em.find(Request.class, 2);
+        request = em.find(Request.class, 1);
         assertEquals(newDeparture, request.getDeparture());
         assertEquals(newJustification, request.getJustification());
        
 
     }
    
-    @Test
+    /*@Test
     public void atualizarRequestComMerge() {
         
         logger.info("Atualizando Request com merge");
         
         Calendar newDate = Calendar.getInstance();
         newDate.set(Calendar.YEAR,2020);
-        newDate.set(Calendar.MONTH, Calendar.SEPTEMBER);
+        newDate.set(Calendar.MONTH, Calendar. );
         newDate.set(Calendar.DAY_OF_MONTH, 8);
         
         String newJustification = "passeio";
         
-        Request request = em.find(Request.class, 3);
+        Request request = em.find(Request.class, 2);
         request.setJustification(newJustification);
         request.setTravelDate(newDate.getTime());
         em.clear();
         em.merge(request);
         Map<String, Object> properties = new HashMap<>();
         properties.put("javax.persistance.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        request = em.find(Request.class, 3);
+        request = em.find(Request.class, 2);
         assertEquals(newJustification, request.getJustification());
         assertEquals(newDate.getTime(), request.getTravelDate());
 
     }
-       
+       */
     @Test
     public void removerRequest() {
         logger.info("Executando removerRequest()");
-        Request request = em.find(Request.class, 4);
+        Request request = em.find(Request.class, 3);
         assertNotNull(request);
         em.remove(request);
-        request = em.find(Request.class, 4);
+        request = em.find(Request.class, 3);
         assertNull(request);
     }
     

@@ -33,7 +33,6 @@ public class Bank_Details implements Serializable{
     @NotNull
     @Column(name = "TXT_ACCOUNT_NAME", nullable = false, length = 255)
     String account_Name;
-    @CreditCardNumber
     @NotNull
     @Size(max = 50)
     @Column(name = "TXT_ACCOUNT_NUMBER", nullable = false, length = 50)
