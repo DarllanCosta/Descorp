@@ -116,7 +116,7 @@ public class HotelCrudTest extends GenericTest{
         //quote
         
         Quote quote = new Quote();
-        quote.setStatus("Aproved");
+        quote.setStatus("approved");
         quote.setIsSelected(0);
         Agency agency = em.find(Agency.class, 1);
         quote.setAgency(agency);

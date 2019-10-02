@@ -36,6 +36,7 @@ public class Quote implements Serializable{
     Integer isSelected;
     @Column(name = "TXT_STATUS", nullable = false)
    // @NotNull
+    @ValidaStatus
     String Status;
     
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}  , optional = false)

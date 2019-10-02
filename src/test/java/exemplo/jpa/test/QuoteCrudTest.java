@@ -42,7 +42,7 @@ public class QuoteCrudTest extends GenericTest {
     public void atualizarQuote() {
 
         logger.info("Atualizando Flight");
-        String NewStatus = "Choose";
+        String NewStatus = "rejected";
         Agency newAgency = em.find(Agency.class, 1);
         
         
