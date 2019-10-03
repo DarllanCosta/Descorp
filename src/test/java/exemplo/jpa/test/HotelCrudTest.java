@@ -88,10 +88,10 @@ public class HotelCrudTest extends GenericTest{
     @Test
     public void removerHotel(){
         logger.info("Executando removerHotel()");
-        Hotel hotel = em.find(Hotel.class, 5);
+        Hotel hotel = em.find(Hotel.class, 3);
         assertNotNull(hotel);
         em.remove(hotel);
-        hotel = em.find(Hotel.class, 5);
+        hotel = em.find(Hotel.class, 3);
         assertNull(hotel);
         
     }

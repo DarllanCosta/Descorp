@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: exemplo.jpa.test.AddressCrudTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 26.651 sec <<< FAILURE!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 32.954 sec <<< FAILURE!
 exemplo.jpa.test.AddressCrudTest  Time elapsed: 0 sec  <<< ERROR!
 java.lang.RuntimeException: TB_INTERNALPROJECT
 	at exemplo.jpa.test.DbUnitUtil.inserirDados(DbUnitUtil.java:46)

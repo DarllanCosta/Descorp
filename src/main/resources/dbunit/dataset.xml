@@ -128,9 +128,11 @@
     
     <ADDRESS txt_street="Rua da insonia" postal_code="67890121" txt_state="Pernambuco" 
             txt_neighborhood="Pacheco" number="221"/>
-
     
-    <HOTEL txt_name="Meridional" number_stars="2" id_address="10"/>
+    <ADDRESS txt_street="Rua dos bobos" postal_code="645523125" txt_state="Pernambuco" 
+            txt_neighborhood="Jd Sao Paulo" number="222"/>
+  
+    <HOTEL txt_name="Meridional" number_stars="2" id_address="11"/>
     
     
     <PROJECT_TABLE disc_project = "I" txt_project_name="reprovar" project_budget="19007" txt_project_description="Reprovar as cadeiras"/>

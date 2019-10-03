@@ -120,10 +120,10 @@ public class AddressCrudTest extends GenericTest {
     @Test
     public void removerAddress() {
         logger.info("Executando removerAddress()");
-        Address address = em.find(Address.class, 9);
+        Address address = em.find(Address.class, 11);
         assertNotNull(address);
         em.remove(address);
-        address = em.find(Address.class, 9);
+        address = em.find(Address.class, 11);
         assertNull(address);
     }
     

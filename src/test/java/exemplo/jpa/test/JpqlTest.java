@@ -32,6 +32,7 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(1, users.size());
     }
+
     @Test
     public void AddressPorBairro() {
         logger.info("Executando AddressPorBairro()");
@@ -45,7 +46,7 @@ public class JpqlTest extends GenericTest {
             assertTrue(address.getNeighborhood().startsWith("Zumbi"));
         }
 
-        assertEquals(2, addresss.size());
+        assertEquals(1, addresss.size());
     }
     /*
     @Test
@@ -154,6 +155,73 @@ public class JpqlTest extends GenericTest {
         assertEquals(1, users.size());
     }
 
+=======
+  @Test
+     public void FlightPorNumber() {
+         logger.info("Executando FlightPorNumber()");
+         TypedQuery<Flight> query = em.createQuery("SELECT f FROM Flight f WHERE f.number LIKE :number ORDER BY f.id", Flight.class);
+         query.setParameter("number", "T1885");
+         List<Flight> flightes = query.getResultList();
+         
+         for (Flight flight : flightes) {
+            assertTrue(flight.getNumber().startsWith("T1885"));
+        }
+         
+          assertEquals(1, flightes.size());
+         
+     }
+    
+     @Test
+     public void ItineraryPorDeparture() {
+         logger.info("Executando ItineraryPorDeparture()");
+         TypedQuery<Itinerary> query = em.createQuery("SELECT i FROM Itinerary i WHERE i.departure LIKE :departure ORDER BY i.id", Itinerary.class);
+         query.setParameter("departure", "Para");
+         List<Itinerary> itineraries = query.getResultList();
+         
+         for (Itinerary itinerary : itineraries) {
+            assertTrue(itinerary.getDeparture().startsWith("Para"));
+        }
+         
+          assertEquals(1, itineraries.size());
+         
+     }
+    
+     
+     
+      @Test
+     public void RequestPorDeparture() {
+         logger.info("Executando RequestPorDeparture()");
+         TypedQuery<Request> query = em.createQuery("SELECT r FROM Request r WHERE r.departure LIKE :departure ORDER BY r.id", Request.class);
+         query.setParameter("departure", "Para");
+         List<Request> requests = query.getResultList();
+         
+         for (Request request : requests) {
+            assertTrue(request.getDeparture().startsWith("Para"));
+        }
+         
+          assertEquals(1, requests.size());
+         
+     }
+
+     
+     
+     
+      
+      @Test
+     public void QuotePorQuote() {
+         logger.info("Executando RequestPorQuote()");
+         TypedQuery<Quote> query = em.createQuery("SELECT q FROM Quote q WHERE q.status LIKE :status ORDER BY q.id", Quote.class);
+         query.setParameter("status", "rejected");
+         List<Quote> quotes = query.getResultList();
+         
+         for (Quote quote : quotes) {
+            assertTrue(quote.getStatus().startsWith("rejected"));
+        }
+         
+          assertEquals(1, quotes.size());
+         
+     }
+>>>>>>> c9f4e31cbe9bc204d700319cfe193f9862efebc9
     /*
     @Test
     public void categoriaPorNomeNamedQuery() {

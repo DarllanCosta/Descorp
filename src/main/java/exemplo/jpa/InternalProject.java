@@ -26,7 +26,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="TB_INTERNALPROJECT") 
 @DiscriminatorValue(value = "I")
 @PrimaryKeyJoinColumn(name="ID", referencedColumnName = "ID")
-@NamedQueries(
+/*@NamedQueries(
         {
             @NamedQuery(
                     name = "InternalProject.porDataDeInico",
@@ -41,7 +41,7 @@ import javax.validation.constraints.NotNull;
                     query = "SELECT u FROM InternalProject u WHERE u.department LIKE :department ORDER BY u.id"
             )
         }
-)
+)*/
 public class InternalProject extends Project implements Serializable{
     
     @Column(name = "StartDate")

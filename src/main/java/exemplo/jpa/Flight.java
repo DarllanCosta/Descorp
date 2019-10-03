@@ -18,6 +18,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,7 +31,16 @@ import javax.validation.constraints.Size;
  *
  * @author Darllan Costa
  */
-
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "flight.porNumber",
+                    query = "SELECT f FROM Flight f WHERE f.number LIKE :number ORDER BY f.id"
+            )
+                
+        }
+        
+)
 
 @Entity
 @Access(AccessType.FIELD)
