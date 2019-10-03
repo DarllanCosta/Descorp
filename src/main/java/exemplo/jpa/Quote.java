@@ -18,12 +18,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Darllan Costa
  */
+
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "quote.porStatus",
+                    query = "SELECT q FROM Quote q WHERE q.status LIKE :status ORDER BY q.id"
+            )
+                
+        }
+)
+
+
 
 @Entity
 @Access(AccessType.FIELD)

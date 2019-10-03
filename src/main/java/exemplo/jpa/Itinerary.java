@@ -20,6 +20,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,6 +33,21 @@ import javax.validation.constraints.Size;
  *
  * @author ALUNO
  */
+
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "itineraryPorDeparture",
+                    query = "SELECT i FROM Itinerary i WHERE i.departure LIKE :departure ORDER BY i.id"
+            )
+                
+        }
+)
+
+
+
+
+
 @Entity
 @Access(AccessType.FIELD)
 public class Itinerary implements Serializable{
