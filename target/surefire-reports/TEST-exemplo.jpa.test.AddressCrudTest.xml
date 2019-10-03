@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="exemplo.jpa.test.AddressCrudTest" time="37.993" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="exemplo.jpa.test.AddressCrudTest" time="26.663" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
@@ -44,7 +44,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_201\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,8 +61,315 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="persistirAddress" time="0.376"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="removerAddress" time="0.081"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddress" time="0.09"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddressMerge" time="0.057"/>
+  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="exemplo.jpa.test.AddressCrudTest" time="0">
+    <error message="TB_INTERNALPROJECT" type="java.lang.RuntimeException">java.lang.RuntimeException: TB_INTERNALPROJECT
+	at exemplo.jpa.test.DbUnitUtil.inserirDados(DbUnitUtil.java:46)
+	at exemplo.jpa.test.GenericTest.setUpClass(GenericTest.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+Caused by: org.dbunit.dataset.NoSuchTableException: TB_INTERNALPROJECT
+	at org.dbunit.database.DatabaseDataSet.getTableMetaData(DatabaseDataSet.java:305)
+	at org.dbunit.operation.DeleteAllOperation.execute(DeleteAllOperation.java:109)
+	at org.dbunit.operation.CompositeOperation.execute(CompositeOperation.java:79)
+	at exemplo.jpa.test.DbUnitUtil.inserirDados(DbUnitUtil.java:44)
+	... 23 more
+</error>
+    <system-out>[EL Fine]: server: 2019-10-02 23:28:48.172--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2019-10-02 23:28:48.323--ServerSession(838411509)--Thread(Thread[main,5,main])--The access type for the persistent class [class exemplo.jpa.User] is set to [FIELD].
+[EL Config]: metadata: 2019-10-02 23:28:48.35--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field address] is being defaulted to: class exemplo.jpa.Address.
+[EL Config]: metadata: 2019-10-02 23:28:48.356--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field projetos] is being defaulted to: class exemplo.jpa.Project.
+[EL Config]: metadata: 2019-10-02 23:28:48.358--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field requests] is being defaulted to: class exemplo.jpa.Request.
+[EL Config]: metadata: 2019-10-02 23:28:48.358--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field bank_Details] is being defaulted to: class exemplo.jpa.Bank_Details.
+[EL Config]: metadata: 2019-10-02 23:28:48.359--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field itinerarys] is being defaulted to: class exemplo.jpa.Itinerary.
+[EL Config]: metadata: 2019-10-02 23:28:48.361--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field user] is being defaulted to: class exemplo.jpa.User.
+[EL Config]: metadata: 2019-10-02 23:28:48.362--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to many mapping element [field users] is being defaulted to: class exemplo.jpa.User.
+[EL Config]: metadata: 2019-10-02 23:28:48.362--ServerSession(838411509)--Thread(Thread[main,5,main])--The access type for the persistent class [class exemplo.jpa.ProjectCliente] is set to [FIELD].
+[EL Config]: metadata: 2019-10-02 23:28:48.363--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field flight] is being defaulted to: class exemplo.jpa.Flight.
+[EL Config]: metadata: 2019-10-02 23:28:48.364--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field agency] is being defaulted to: class exemplo.jpa.Agency.
+[EL Config]: metadata: 2019-10-02 23:28:48.364--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field hotel] is being defaulted to: class exemplo.jpa.Hotel.
+[EL Config]: metadata: 2019-10-02 23:28:48.365--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field itinerary] is being defaulted to: class exemplo.jpa.Itinerary.
+[EL Config]: metadata: 2019-10-02 23:28:48.366--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field request] is being defaulted to: class exemplo.jpa.Request.
+[EL Config]: metadata: 2019-10-02 23:28:48.366--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field quotes] is being defaulted to: class exemplo.jpa.Quote.
+[EL Config]: metadata: 2019-10-02 23:28:48.367--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field address] is being defaulted to: class exemplo.jpa.Address.
+[EL Config]: metadata: 2019-10-02 23:28:48.367--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field quotes] is being defaulted to: class exemplo.jpa.Quote.
+[EL Config]: metadata: 2019-10-02 23:28:48.368--ServerSession(838411509)--Thread(Thread[main,5,main])--The access type for the persistent class [class exemplo.jpa.InternalProject] is set to [FIELD].
+[EL Config]: metadata: 2019-10-02 23:28:48.368--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field quotes] is being defaulted to: class exemplo.jpa.Quote.
+[EL Config]: metadata: 2019-10-02 23:28:48.369--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field address] is being defaulted to: class exemplo.jpa.Address.
+[EL Config]: metadata: 2019-10-02 23:28:48.369--ServerSession(838411509)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field quotes] is being defaulted to: class exemplo.jpa.Quote.
+[EL Config]: metadata: 2019-10-02 23:28:48.37--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.User] is being defaulted to: User.
+[EL Config]: metadata: 2019-10-02 23:28:48.388--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.389--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Request] is being defaulted to: Request.
+[EL Config]: metadata: 2019-10-02 23:28:48.389--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Request] is being defaulted to: REQUEST.
+[EL Config]: metadata: 2019-10-02 23:28:48.393--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.394--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.ProjectCliente] is being defaulted to: ProjectCliente.
+[EL Config]: metadata: 2019-10-02 23:28:48.395--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Project] is being defaulted to: Project.
+[EL Config]: metadata: 2019-10-02 23:28:48.397--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.399--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Bank_Details] is being defaulted to: Bank_Details.
+[EL Config]: metadata: 2019-10-02 23:28:48.399--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Bank_Details] is being defaulted to: BANK_DETAILS.
+[EL Config]: metadata: 2019-10-02 23:28:48.4--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.4--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Quote] is being defaulted to: Quote.
+[EL Config]: metadata: 2019-10-02 23:28:48.401--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Quote] is being defaulted to: QUOTE.
+[EL Config]: metadata: 2019-10-02 23:28:48.401--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.401--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Address] is being defaulted to: Address.
+[EL Config]: metadata: 2019-10-02 23:28:48.401--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Address] is being defaulted to: ADDRESS.
+[EL Config]: metadata: 2019-10-02 23:28:48.402--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.402--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Itinerary] is being defaulted to: Itinerary.
+[EL Config]: metadata: 2019-10-02 23:28:48.403--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Itinerary] is being defaulted to: ITINERARY.
+[EL Config]: metadata: 2019-10-02 23:28:48.403--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.404--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Agency] is being defaulted to: Agency.
+[EL Config]: metadata: 2019-10-02 23:28:48.405--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Agency] is being defaulted to: AGENCY.
+[EL Config]: metadata: 2019-10-02 23:28:48.406--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [Id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.406--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.InternalProject] is being defaulted to: InternalProject.
+[EL Config]: metadata: 2019-10-02 23:28:48.407--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Flight] is being defaulted to: Flight.
+[EL Config]: metadata: 2019-10-02 23:28:48.407--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Flight] is being defaulted to: FLIGHT.
+[EL Config]: metadata: 2019-10-02 23:28:48.408--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.409--ServerSession(838411509)--Thread(Thread[main,5,main])--The alias name for the entity class [class exemplo.jpa.Hotel] is being defaulted to: Hotel.
+[EL Config]: metadata: 2019-10-02 23:28:48.409--ServerSession(838411509)--Thread(Thread[main,5,main])--The table name for entity [class exemplo.jpa.Hotel] is being defaulted to: HOTEL.
+[EL Config]: metadata: 2019-10-02 23:28:48.41--ServerSession(838411509)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.435--ServerSession(838411509)--Thread(Thread[main,5,main])--The source primary key column name for the many to many mapping [field projetos] is being defaulted to: ID.
+[EL Config]: metadata: 2019-10-02 23:28:48.435--ServerSession(838411509)--Thread(Thread[main,5,main])--The target primary key column name for the many to many mapping [field projetos] is being defaulted to: ID.
+[EL Info]: 2019-10-02 23:28:49.286--ServerSession(838411509)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd
+[EL Config]: connection: 2019-10-02 23:28:49.293--ServerSession(838411509)--Connection(668312960)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=&gt;MySQLPlatform
+	user name=&gt; &quot;root&quot;
+	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/truetravel&quot;
+))
+[EL Config]: connection: 2019-10-02 23:28:49.673--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/truetravel
+	User: root@localhost
+	Database: MySQL  Version: 5.7.27-log
+	Driver: MySQL Connector Java  Version: mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )
+[EL Warning]: metadata: 2019-10-02 23:28:49.685--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [address] for the entity class [class exemplo.jpa.User] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-10-02 23:28:49.712--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [user] for the entity class [class exemplo.jpa.Request] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-10-02 23:28:49.714--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [request] for the entity class [class exemplo.jpa.Itinerary] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-10-02 23:28:49.715--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [flight] for the entity class [class exemplo.jpa.Quote] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-10-02 23:28:49.715--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [agency] for the entity class [class exemplo.jpa.Quote] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-10-02 23:28:49.715--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [hotel] for the entity class [class exemplo.jpa.Quote] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-10-02 23:28:49.716--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [itinerary] for the entity class [class exemplo.jpa.Quote] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-10-02 23:28:49.717--ServerSession(838411509)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [address] for the entity class [class exemplo.jpa.Agency] since weaving was not enabled or did not occur.
+[EL Info]: connection: 2019-10-02 23:28:49.944--ServerSession(838411509)--Thread(Thread[main,5,main])--/file:/C:/Users/Guilherme Henrique/Desktop/Descorp Pegando/Descorp/target/classes/_truetravel login successful
+[EL Fine]: sql: 2019-10-02 23:28:49.974--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE AGENCY DROP FOREIGN KEY FK_AGENCY_ID_ADDRESS
+[EL Fine]: sql: 2019-10-02 23:28:50.194--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:50.194--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_AGENCY_ID_ADDRESS&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE AGENCY DROP FOREIGN KEY FK_AGENCY_ID_ADDRESS
+Query: DataModifyQuery(sql=&quot;ALTER TABLE AGENCY DROP FOREIGN KEY FK_AGENCY_ID_ADDRESS&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:50.194--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE HOTEL DROP FOREIGN KEY FK_HOTEL_ID_ADDRESS
+[EL Fine]: sql: 2019-10-02 23:28:50.504--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:50.504--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_HOTEL_ID_ADDRESS&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE HOTEL DROP FOREIGN KEY FK_HOTEL_ID_ADDRESS
+Query: DataModifyQuery(sql=&quot;ALTER TABLE HOTEL DROP FOREIGN KEY FK_HOTEL_ID_ADDRESS&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:50.504--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE ITINERARY DROP FOREIGN KEY FK_ITINERARY_ID_REQUEST
+[EL Fine]: sql: 2019-10-02 23:28:50.594--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:50.604--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_ITINERARY_ID_REQUEST&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE ITINERARY DROP FOREIGN KEY FK_ITINERARY_ID_REQUEST
+Query: DataModifyQuery(sql=&quot;ALTER TABLE ITINERARY DROP FOREIGN KEY FK_ITINERARY_ID_REQUEST&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:50.604--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_HOTEL
+[EL Fine]: sql: 2019-10-02 23:28:50.959--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:50.964--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_QUOTE_ID_HOTEL&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_HOTEL
+Query: DataModifyQuery(sql=&quot;ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_HOTEL&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:50.964--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_AGENCY
+[EL Fine]: sql: 2019-10-02 23:28:51.05--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:51.05--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_QUOTE_ID_AGENCY&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_AGENCY
+Query: DataModifyQuery(sql=&quot;ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_AGENCY&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:51.051--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_ITINERARY
+[EL Fine]: sql: 2019-10-02 23:28:51.194--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:51.194--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_QUOTE_ID_ITINERARY&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_ITINERARY
+Query: DataModifyQuery(sql=&quot;ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_ITINERARY&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:51.204--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_FLIGHT
+[EL Fine]: sql: 2019-10-02 23:28:51.244--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:51.254--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_QUOTE_ID_FLIGHT&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_FLIGHT
+Query: DataModifyQuery(sql=&quot;ALTER TABLE QUOTE DROP FOREIGN KEY FK_QUOTE_ID_FLIGHT&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:51.254--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE REQUEST DROP FOREIGN KEY FK_REQUEST_ID_USER
+[EL Fine]: sql: 2019-10-02 23:28:51.499--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:51.504--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_REQUEST_ID_USER&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE REQUEST DROP FOREIGN KEY FK_REQUEST_ID_USER
+Query: DataModifyQuery(sql=&quot;ALTER TABLE REQUEST DROP FOREIGN KEY FK_REQUEST_ID_USER&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:51.504--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE USER_TABLE DROP FOREIGN KEY FK_USER_TABLE_ID_ADDRESS
+[EL Fine]: sql: 2019-10-02 23:28:51.854--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:51.854--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_USER_TABLE_ID_ADDRESS&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE USER_TABLE DROP FOREIGN KEY FK_USER_TABLE_ID_ADDRESS
+Query: DataModifyQuery(sql=&quot;ALTER TABLE USER_TABLE DROP FOREIGN KEY FK_USER_TABLE_ID_ADDRESS&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:51.854--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE USER_TABLE DROP FOREIGN KEY FK_USER_TABLE_ID_BANK_DETAILS
+[EL Fine]: sql: 2019-10-02 23:28:51.974--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:51.974--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_USER_TABLE_ID_BANK_DETAILS&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE USER_TABLE DROP FOREIGN KEY FK_USER_TABLE_ID_BANK_DETAILS
+Query: DataModifyQuery(sql=&quot;ALTER TABLE USER_TABLE DROP FOREIGN KEY FK_USER_TABLE_ID_BANK_DETAILS&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:51.974--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE TB_INTERNALPROJECT DROP FOREIGN KEY FK_TB_INTERNALPROJECT_ID
+[EL Fine]: sql: 2019-10-02 23:28:52.344--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:52.344--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_TB_INTERNALPROJECT_ID&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE TB_INTERNALPROJECT DROP FOREIGN KEY FK_TB_INTERNALPROJECT_ID
+Query: DataModifyQuery(sql=&quot;ALTER TABLE TB_INTERNALPROJECT DROP FOREIGN KEY FK_TB_INTERNALPROJECT_ID&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:52.344--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE TB_PROJECTCLIENTE DROP FOREIGN KEY FK_TB_PROJECTCLIENTE_ID
+[EL Fine]: sql: 2019-10-02 23:28:53.004--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:53.004--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_TB_PROJECTCLIENTE_ID&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE TB_PROJECTCLIENTE DROP FOREIGN KEY FK_TB_PROJECTCLIENTE_ID
+Query: DataModifyQuery(sql=&quot;ALTER TABLE TB_PROJECTCLIENTE DROP FOREIGN KEY FK_TB_PROJECTCLIENTE_ID&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:53.004--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE TB_USER_PROJECT DROP FOREIGN KEY FK_TB_USER_PROJECT_ID_USER
+[EL Fine]: sql: 2019-10-02 23:28:53.334--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:53.334--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_TB_USER_PROJECT_ID_USER&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE TB_USER_PROJECT DROP FOREIGN KEY FK_TB_USER_PROJECT_ID_USER
+Query: DataModifyQuery(sql=&quot;ALTER TABLE TB_USER_PROJECT DROP FOREIGN KEY FK_TB_USER_PROJECT_ID_USER&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:53.334--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE TB_USER_PROJECT DROP FOREIGN KEY FK_TB_USER_PROJECT_ID_PROJECT
+[EL Fine]: sql: 2019-10-02 23:28:53.404--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:53.404--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Can&apos;t DROP &apos;FK_TB_USER_PROJECT_ID_PROJECT&apos;; check that column/key exists
+Error Code: 1091
+Call: ALTER TABLE TB_USER_PROJECT DROP FOREIGN KEY FK_TB_USER_PROJECT_ID_PROJECT
+Query: DataModifyQuery(sql=&quot;ALTER TABLE TB_USER_PROJECT DROP FOREIGN KEY FK_TB_USER_PROJECT_ID_PROJECT&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:53.404--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE ADDRESS
+[EL Fine]: sql: 2019-10-02 23:28:53.914--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:28:53.914--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails
+Error Code: 1217
+Call: DROP TABLE ADDRESS
+Query: DataModifyQuery(sql=&quot;DROP TABLE ADDRESS&quot;)
+[EL Fine]: sql: 2019-10-02 23:28:53.914--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE AGENCY
+[EL Fine]: sql: 2019-10-02 23:28:54.854--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE BANK_DETAILS
+[EL Fine]: sql: 2019-10-02 23:28:55.34--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE FLIGHT
+[EL Fine]: sql: 2019-10-02 23:28:55.888--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE HOTEL
+[EL Fine]: sql: 2019-10-02 23:28:56.837--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE ITINERARY
+[EL Fine]: sql: 2019-10-02 23:28:58.193--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE PROJECT_TABLE
+[EL Fine]: sql: 2019-10-02 23:28:58.647--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE QUOTE
+[EL Fine]: sql: 2019-10-02 23:28:58.91--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE REQUEST
+[EL Fine]: sql: 2019-10-02 23:29:01.292--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE USER_TABLE
+[EL Fine]: sql: 2019-10-02 23:29:01.773--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE TB_INTERNALPROJECT
+[EL Fine]: sql: 2019-10-02 23:29:02.099--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE TB_PROJECTCLIENTE
+[EL Fine]: sql: 2019-10-02 23:29:02.555--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE TB_USER_PROJECT
+[EL Fine]: sql: 2019-10-02 23:29:03.107--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--DROP TABLE ADDRESS
+[EL Fine]: sql: 2019-10-02 23:29:03.311--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE ADDRESS (ID INTEGER AUTO_INCREMENT NOT NULL, TXT_NEIGHBORHOOD VARCHAR(20) NOT NULL, NUMBER INTEGER NOT NULL, POSTAL_CODE VARCHAR(20) NOT NULL, TXT_STATE VARCHAR(255) NOT NULL, TXT_STREET VARCHAR(255) NOT NULL, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:04.528--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE AGENCY (ID INTEGER AUTO_INCREMENT NOT NULL, TXT_AGENCY_NAME VARCHAR(255) NOT NULL, TXT_EMAIL VARCHAR(50) NOT NULL, TXT_PHONE VARCHAR(255), ID_ADDRESS INTEGER, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:05.45--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE BANK_DETAILS (ID INTEGER AUTO_INCREMENT NOT NULL, TXT_ACCOUNT_AGENCY VARCHAR(255) NOT NULL, TXT_ACCOUNT_NAME VARCHAR(255) NOT NULL, TXT_ACCOUNT_NUMBER VARCHAR(50) NOT NULL, TXT_ACCOUNT_TYPE VARCHAR(255) NOT NULL, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:06.44--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE FLIGHT (ID INTEGER AUTO_INCREMENT NOT NULL, CHECKIN_DATE DATE NOT NULL, TXT_DEPARTURE VARCHAR(50) NOT NULL, TXT_DESTINATION VARCHAR(50) NOT NULL, TXT_NUMBER VARCHAR(255) NOT NULL, TXT_PRICE DOUBLE NOT NULL, TXT_PROVIDER VARCHAR(255) NOT NULL, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:07.545--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE HOTEL (ID INTEGER AUTO_INCREMENT NOT NULL, NUMBER_STARS INTEGER, TXT_NAME VARCHAR(255) NOT NULL, ID_ADDRESS INTEGER, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:08.285--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE ITINERARY (ID INTEGER AUTO_INCREMENT NOT NULL, CHECKIN_DATE DATE NOT NULL, CHECKOUT_DATE DATE NOT NULL, TXT_DEPARTURE VARCHAR(255) NOT NULL, TXT_DESTINATION VARCHAR(255) NOT NULL, ID_REQUEST INTEGER, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:09.021--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE PROJECT_TABLE (ID INTEGER AUTO_INCREMENT NOT NULL, DISC_PROJECT VARCHAR(1), TXT_PROJECT_DESCRIPTION VARCHAR(255), PROJECT_BUDGET DOUBLE NOT NULL, TXT_PROJECT_NAME VARCHAR(50) NOT NULL, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:09.684--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE QUOTE (ID INTEGER AUTO_INCREMENT NOT NULL, TXT_STATUS VARCHAR(255) NOT NULL, IS_SELECTED INTEGER NOT NULL, ID_AGENCY INTEGER, ID_FLIGHT INTEGER, ID_HOTEL INTEGER, ID_ITINERARY INTEGER, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:10.392--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE REQUEST (ID INTEGER AUTO_INCREMENT NOT NULL, TXT_DEPARTURE VARCHAR(50) NOT NULL, TXT_JUSTIFICATION VARCHAR(255), TRAVEL_DATE DATE NOT NULL, UNTIL_DATE DATE NOT NULL, ID_USER INTEGER, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:11.105--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE USER_TABLE (ID INTEGER AUTO_INCREMENT NOT NULL, TXT_EMAIL VARCHAR(50) NOT NULL, TXT_NAME VARCHAR(50) NOT NULL, PASSWORD VARCHAR(50) NOT NULL, TXT_PHONE VARCHAR(20), USERNAME VARCHAR(50) NOT NULL UNIQUE, ID_ADDRESS INTEGER, ID_BANK_DETAILS INTEGER, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:11.856--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE TB_INTERNALPROJECT (ID INTEGER NOT NULL, department VARCHAR(255), FinalDate DATE, StartDate DATE, PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:12.726--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE TB_PROJECTCLIENTE (ID INTEGER NOT NULL, Allocation TINYINT(1) default 0, ClientName VARCHAR(255), PRIMARY KEY (ID))
+[EL Fine]: sql: 2019-10-02 23:29:13.346--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--CREATE TABLE TB_USER_PROJECT (ID_PROJECT INTEGER NOT NULL, ID_USER INTEGER NOT NULL, PRIMARY KEY (ID_PROJECT, ID_USER))
+[EL Fine]: sql: 2019-10-02 23:29:13.844--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE AGENCY ADD CONSTRAINT FK_AGENCY_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.846--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.846--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.agency&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE AGENCY ADD CONSTRAINT FK_AGENCY_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE AGENCY ADD CONSTRAINT FK_AGENCY_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.847--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE HOTEL ADD CONSTRAINT FK_HOTEL_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.847--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.848--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.hotel&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE HOTEL ADD CONSTRAINT FK_HOTEL_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE HOTEL ADD CONSTRAINT FK_HOTEL_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.848--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE ITINERARY ADD CONSTRAINT FK_ITINERARY_ID_REQUEST FOREIGN KEY (ID_REQUEST) REFERENCES REQUEST (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.849--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.85--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.itinerary&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE ITINERARY ADD CONSTRAINT FK_ITINERARY_ID_REQUEST FOREIGN KEY (ID_REQUEST) REFERENCES REQUEST (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE ITINERARY ADD CONSTRAINT FK_ITINERARY_ID_REQUEST FOREIGN KEY (ID_REQUEST) REFERENCES REQUEST (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.851--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE QUOTE ADD CONSTRAINT FK_QUOTE_ID_HOTEL FOREIGN KEY (ID_HOTEL) REFERENCES HOTEL (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.852--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.853--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.quote&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE QUOTE ADD CONSTRAINT FK_QUOTE_ID_HOTEL FOREIGN KEY (ID_HOTEL) REFERENCES HOTEL (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE QUOTE ADD CONSTRAINT FK_QUOTE_ID_HOTEL FOREIGN KEY (ID_HOTEL) REFERENCES HOTEL (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.853--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE REQUEST ADD CONSTRAINT FK_REQUEST_ID_USER FOREIGN KEY (ID_USER) REFERENCES USER_TABLE (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.854--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.855--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.request&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE REQUEST ADD CONSTRAINT FK_REQUEST_ID_USER FOREIGN KEY (ID_USER) REFERENCES USER_TABLE (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE REQUEST ADD CONSTRAINT FK_REQUEST_ID_USER FOREIGN KEY (ID_USER) REFERENCES USER_TABLE (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.855--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE USER_TABLE ADD CONSTRAINT FK_USER_TABLE_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.856--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.857--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.user_table&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE USER_TABLE ADD CONSTRAINT FK_USER_TABLE_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE USER_TABLE ADD CONSTRAINT FK_USER_TABLE_ID_ADDRESS FOREIGN KEY (ID_ADDRESS) REFERENCES ADDRESS (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.857--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE TB_INTERNALPROJECT ADD CONSTRAINT FK_TB_INTERNALPROJECT_ID FOREIGN KEY (ID) REFERENCES PROJECT_TABLE (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.858--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.858--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.tb_internalproject&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE TB_INTERNALPROJECT ADD CONSTRAINT FK_TB_INTERNALPROJECT_ID FOREIGN KEY (ID) REFERENCES PROJECT_TABLE (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE TB_INTERNALPROJECT ADD CONSTRAINT FK_TB_INTERNALPROJECT_ID FOREIGN KEY (ID) REFERENCES PROJECT_TABLE (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.859--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE TB_PROJECTCLIENTE ADD CONSTRAINT FK_TB_PROJECTCLIENTE_ID FOREIGN KEY (ID) REFERENCES PROJECT_TABLE (ID)
+[EL Fine]: sql: 2019-10-02 23:29:13.86--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:13.861--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.tb_projectcliente&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE TB_PROJECTCLIENTE ADD CONSTRAINT FK_TB_PROJECTCLIENTE_ID FOREIGN KEY (ID) REFERENCES PROJECT_TABLE (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE TB_PROJECTCLIENTE ADD CONSTRAINT FK_TB_PROJECTCLIENTE_ID FOREIGN KEY (ID) REFERENCES PROJECT_TABLE (ID)&quot;)
+[EL Fine]: sql: 2019-10-02 23:29:13.861--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--ALTER TABLE TB_USER_PROJECT ADD CONSTRAINT FK_TB_USER_PROJECT_ID_USER FOREIGN KEY (ID_USER) REFERENCES USER_TABLE (ID)
+[EL Fine]: sql: 2019-10-02 23:29:14.232--ServerSession(838411509)--Thread(Thread[main,5,main])--SELECT 1
+[EL Warning]: 2019-10-02 23:29:14.233--ServerSession(838411509)--Thread(Thread[main,5,main])--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table &apos;truetravel.tb_user_project&apos; doesn&apos;t exist
+Error Code: 1146
+Call: ALTER TABLE TB_USER_PROJECT ADD CONSTRAINT FK_TB_USER_PROJECT_ID_USER FOREIGN KEY (ID_USER) REFERENCES USER_TABLE (ID)
+Query: DataModifyQuery(sql=&quot;ALTER TABLE TB_USER_PROJECT ADD CONSTRAINT FK_TB_USER_PROJECT_ID_USER FOREIGN KEY (ID_USER) REFERENCES USER_TABLE (ID)&quot;)
+[EL Config]: connection: 2019-10-02 23:29:14.305--ServerSession(838411509)--Connection(1541697437)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2019-10-02 23:29:14.306--ServerSession(838411509)--Thread(Thread[main,5,main])--/file:/C:/Users/Guilherme Henrique/Desktop/Descorp Pegando/Descorp/target/classes/_truetravel logout successful
+[EL Config]: connection: 2019-10-02 23:29:14.306--ServerSession(838411509)--Connection(668312960)--Thread(Thread[main,5,main])--disconnect
+</system-out>
+    <system-err>out 02, 2019 11:28:48 PM org.hibernate.validator.internal.util.Version &lt;clinit&gt;
+INFO: HV000001: Hibernate Validator 5.2.5.Final
+SLF4J: Failed to load class &quot;org.slf4j.impl.StaticLoggerBinder&quot;.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+</system-err>
+  </testcase>
 </testsuite>

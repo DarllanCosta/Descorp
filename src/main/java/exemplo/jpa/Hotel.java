@@ -18,6 +18,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -28,6 +30,18 @@ import javax.validation.constraints.Size;
  * @author Darllan Costa
  */
 @Entity
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "Hotel.porNome",
+                    query = "SELECT u FROM Hotel u WHERE u.name LIKE :name ORDER BY u.id"
+            ),
+            @NamedQuery(
+                    name = "Hotel.porNumeroDeEstrelas",
+                    query = "SELECT u FROM Hotel u WHERE u.nStars LIKE :nStars ORDER BY u.id"
+            )
+        }
+)
 @Access(AccessType.FIELD)
 public class Hotel implements Serializable {
     @Id

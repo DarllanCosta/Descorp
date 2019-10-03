@@ -18,6 +18,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -29,6 +31,18 @@ import org.hibernate.validator.constraints.Email;
  * @author ALUNO
  */
 @Entity
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "Agency.porTelefone",
+                    query = "SELECT u FROM Agency u WHERE u.phone LIKE :phone ORDER BY u.Id"
+            ),
+            @NamedQuery(
+                    name = "Agency.porEmail",
+                    query = "SELECT u FROM Agency u WHERE u.email LIKE :email ORDER BY u.Id"
+            )
+        }
+)
 @Access(AccessType.FIELD)
 public class Agency implements Serializable{
    @Id

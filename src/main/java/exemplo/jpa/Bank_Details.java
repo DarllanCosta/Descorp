@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.CreditCardNumber;
@@ -25,6 +27,22 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 
 @Entity
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "Bank.porAgencia",
+                    query = "SELECT u FROM Bank_Details u WHERE u.account_Agency LIKE :account_Agency ORDER BY u.id"
+            ),
+            @NamedQuery(
+                    name = "Bank.porTipo",
+                    query = "SELECT u FROM Bank_Details u WHERE u.account_Type LIKE :account_Type ORDER BY u.id"
+            ),
+            @NamedQuery(
+                    name = "Bank.porNome",
+                    query = "SELECT u FROM Bank_Details u WHERE u.account_Name LIKE :account_Name ORDER BY u.id"
+            )
+        }
+)
 @Access(AccessType.FIELD)
 public class Bank_Details implements Serializable{
     @Id

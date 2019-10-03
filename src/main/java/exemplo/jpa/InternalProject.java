@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,6 +26,22 @@ import javax.validation.constraints.NotNull;
 @Table(name="TB_INTERNALPROJECT") 
 @DiscriminatorValue(value = "I")
 @PrimaryKeyJoinColumn(name="ID", referencedColumnName = "ID")
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "InternalProject.porDataDeInico",
+                    query = "SELECT u FROM InternalProject u WHERE u.startDate LIKE :startDate ORDER BY u.id"
+            ),
+            @NamedQuery(
+                    name = "InternalProject.porUsername",
+                    query = "SELECT u FROM InternalProject u WHERE u.finalDate LIKE :finalDate ORDER BY u.id"
+            ),
+            @NamedQuery(
+                    name = "InternalProject.porDepartamento",
+                    query = "SELECT u FROM InternalProject u WHERE u.department LIKE :department ORDER BY u.id"
+            )
+        }
+)
 public class InternalProject extends Project implements Serializable{
     
     @Column(name = "StartDate")

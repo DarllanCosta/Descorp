@@ -4,7 +4,7 @@
     <ADDRESS txt_street="Rua Frei Teófilo de Virgoletta" postal_code="50720660" txt_state="Pernambuco" 
              txt_neighborhood="Zumbi" number="462"/>
     <ADDRESS txt_street="Rua Frei Teófilo" postal_code="50750660" txt_state="Pernambuco" 
-             txt_neighborhood="Zumbi" number="452"/>
+             txt_neighborhood="opa" number="452"/>
     
     <AGENCY txt_agency_name="cvc" txt_email="cvc@descorp.com" txt_phone="819995784" id_address="01"/>
     
@@ -65,7 +65,7 @@
     <ADDRESS txt_street="avenida gomes taborda" postal_code="854244" txt_state="Pernambuco" 
              txt_neighborhood="Cordeiro" number="9654"/>
     <ADDRESS txt_street="Rua da lama" postal_code="985997" txt_state="Pernambuco" 
-             txt_neighborhood="Cordeiro" number="9445"/>
+             txt_neighborhood="varzea" number="9445"/>
     
     <AGENCY txt_agency_name="Tam" txt_email="Tam@descorp.com" txt_phone="98956596" id_address="05"/>
     
@@ -124,10 +124,10 @@
     <TB_USER_PROJECT id_user="04" id_project="04"/>
    
     <ADDRESS txt_street="Rua dos bobos" postal_code="645523125" txt_state="Pernambuco" 
-            txt_neighborhood="Pacheco" number="222"/>
+            txt_neighborhood="Jd Sao Paulo" number="222"/>
     
     <ADDRESS txt_street="Rua da insonia" postal_code="67890121" txt_state="Pernambuco" 
-            txt_neighborhood="Jd Sao Paulo" number="221"/>
+            txt_neighborhood="Pacheco" number="221"/>
 
     
     <HOTEL txt_name="Meridional" number_stars="2" id_address="10"/>

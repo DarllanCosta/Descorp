@@ -15,6 +15,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -24,6 +26,18 @@ import javax.validation.constraints.NotNull;
 
 
 @Entity
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "Address.porBairro",
+                    query = "SELECT ad FROM Address ad WHERE ad.neighborhood LIKE :neighborhood ORDER BY ad.id"
+            ),
+            @NamedQuery(
+                    name = "user.porEstado",
+                    query = "SELECT ad FROM Address ad WHERE ad.state LIKE :state ORDER BY ad.id"
+            )
+        }
+)
 @Access(AccessType.FIELD)
 public class Address implements Serializable{
     @Id

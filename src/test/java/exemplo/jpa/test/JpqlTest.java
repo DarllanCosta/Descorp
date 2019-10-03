@@ -32,6 +32,127 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(1, users.size());
     }
+    @Test
+    public void AddressPorBairro() {
+        logger.info("Executando AddressPorBairro()");
+        TypedQuery<Address> query = em.createQuery(
+                "SELECT ad FROM Address ad WHERE ad.neighborhood LIKE :neighborhood ORDER BY ad.id",
+                Address.class);
+        query.setParameter("neighborhood", "Zumbi");
+        List<Address> addresss = query.getResultList();
+
+        for (Address address : addresss) {
+            assertTrue(address.getNeighborhood().startsWith("Zumbi"));
+        }
+
+        assertEquals(2, addresss.size());
+    }
+    /*
+    @Test
+    public void categoriaPorNome() {
+        logger.info("Executando categoriaPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
+    @Test
+    public void categoriaPorNome() {
+        logger.info("Executando categoriaPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
+    @Test
+    public void categoriaPorNome() {
+        logger.info("Executando categoriaPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
+    @Test
+    public void categoriaPorNome() {
+        logger.info("Executando categoriaPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
+    @Test
+    public void categoriaPorNome() {
+        logger.info("Executando categoriaPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
+    @Test
+    public void categoriaPorNome() {
+        logger.info("Executando categoriaPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
+    @Test
+    public void categoriaPorNome() {
+        logger.info("Executando categoriaPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
 
     /*
     @Test
