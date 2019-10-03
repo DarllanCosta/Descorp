@@ -108,10 +108,10 @@ public class AgencyCrudTest extends GenericTest {
     }
 
     @Test
-    public void removerCategoria() {
-        logger.info("Executando removerCategoria()");
+    public void removerAgencyJPQL() {
+        logger.info("Executando removerAgencyJPQL()");
         TypedQuery<Agency> query = em.createNamedQuery("Agency.porTelefone", Agency.class);
-        query.setParameter("phone", "98956596");
+        query.setParameter("phone", "97771122");
         Agency agency = query.getSingleResult();
         assertNotNull(agency);
         em.remove(agency);
@@ -119,15 +119,6 @@ public class AgencyCrudTest extends GenericTest {
         assertEquals(0, query.getResultList().size());
     }
        
-    @Test
-    public void removerAgency() {
-        logger.info("Executando removerAgency()");
-        Agency agency = em.find(Agency.class, 3);
-        assertNotNull(agency);
-        em.remove(agency);
-        agency = em.find(Agency.class, 3);
-        assertNull(agency);
-    }
     
     private Agency criarAgency(){
         Agency newAgency = new Agency();

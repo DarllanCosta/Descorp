@@ -106,7 +106,7 @@ public class AddressCrudTest extends GenericTest {
     }
 
     @Test
-    public void removerCategoria() {
+    public void removerAddressCrudTeste() {
         logger.info("Executando removerCategoria()");
         TypedQuery<Address> query = em.createNamedQuery("Address.porBairro", Address.class);
         query.setParameter("neighborhood", "Pacheco");
@@ -117,15 +117,6 @@ public class AddressCrudTest extends GenericTest {
         assertEquals(0, query.getResultList().size());
     }
        
-    @Test
-    public void removerAddress() {
-        logger.info("Executando removerAddress()");
-        Address address = em.find(Address.class, 11);
-        assertNotNull(address);
-        em.remove(address);
-        address = em.find(Address.class, 11);
-        assertNull(address);
-    }
     
     private Address criarAddress(){
         Address newAddress = new Address();
