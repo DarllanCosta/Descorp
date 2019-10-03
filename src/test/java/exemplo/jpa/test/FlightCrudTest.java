@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Date;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -100,6 +101,47 @@ public class FlightCrudTest extends GenericTest {
         assertEquals(newProvider, flight.getProvider());
         assertEquals(newPrice, flight.getPrice());
 
+    }
+    
+     @Test
+    public void atualizarAgencyJpqlTeste() {
+        logger.info("Executando AtualizarAddress()");
+        TypedQuery<Flight> query = em.createNamedQuery("flight.porNumber", Flight.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("number", "T87");
+        Flight flight = query.getSingleResult();
+        assertNotNull(flight);
+        flight.setNumber("t875");
+        em.flush();
+        assertEquals(0, query.getResultList().size());
+
+    }
+    
+    @Test
+    public void atualizarAddressMergeJpql() {
+        logger.info("Executando atualizarAddressMerge()");
+        TypedQuery<Flight> query = em.createNamedQuery("flight.porNumber", Flight.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("number", "T1885");
+        Flight flight = query.getSingleResult();
+        assertNotNull(flight);
+        flight.setNumber("gg454");
+        em.clear();        
+        em.merge(flight);
+        em.flush();
+       assertEquals(0, query.getResultList().size());
+    }
+
+    @Test
+    public void removerCategoria() {
+        logger.info("Executando removerCategoria()");
+        TypedQuery<Flight> query = em.createNamedQuery("flight.porNumber", Flight.class);
+        query.setParameter("number", "T195655");
+        Flight flight = query.getSingleResult();
+        assertNotNull(flight);
+        em.remove(flight);
+        em.flush();
+        assertEquals(0, query.getResultList().size());
     }
        
     @Test

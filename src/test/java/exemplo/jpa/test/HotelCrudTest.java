@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -80,6 +81,47 @@ public class HotelCrudTest extends GenericTest{
         assertEquals(newName, hotel.getName());
         assertEquals(nStars, hotel.getnStars());
 
+    }
+    
+    @Test
+    public void atualizarAgencyJpqlTeste() {
+        logger.info("Executando AtualizarAddress()");
+        TypedQuery<Hotel> query = em.createNamedQuery("Hotel.porNome", Hotel.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("name","Plaza");
+        Hotel hotel = query.getSingleResult();
+        assertNotNull(hotel);
+        hotel.setName("lalala");
+        em.flush();
+        assertEquals(0, query.getResultList().size());
+
+    }
+    
+    @Test
+    public void atualizarAddressMergeJpql() {
+        logger.info("Executando atualizarAddressMerge()");
+        TypedQuery<Hotel> query = em.createNamedQuery("Hotel.porNome", Hotel.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("name", "holiday");
+        Hotel hotel = query.getSingleResult();
+        assertNotNull(hotel);
+        hotel.setName("trtrtd");
+        em.clear();        
+        em.merge(hotel);
+        em.flush();
+       assertEquals(0, query.getResultList().size());
+    }
+
+    @Test
+    public void removerCategoria() {
+        logger.info("Executando removerCategoria()");
+        TypedQuery<Hotel> query = em.createNamedQuery("Hotel.porNome", Hotel.class);
+        query.setParameter("name", "trtrtd");
+        Hotel hotel = query.getSingleResult();
+        assertNotNull(hotel);
+        em.remove(hotel);
+        em.flush();
+        assertEquals(0, query.getResultList().size());
     }
     
     

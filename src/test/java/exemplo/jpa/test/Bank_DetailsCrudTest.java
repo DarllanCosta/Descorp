@@ -10,6 +10,7 @@ import static exemplo.jpa.test.GenericTest.logger;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -72,6 +73,47 @@ public class Bank_DetailsCrudTest extends GenericTest {
         assertEquals(newAgency, bank.getAccount_Agency());
         assertEquals(newName, bank.getAccount_Name());
 
+    }
+    
+     @Test
+    public void atualizarAgencyJpqlTeste() {
+        logger.info("Executando AtualizarAddress()");
+        TypedQuery<Bank_Details> query = em.createNamedQuery("Bank.porNome", Bank_Details.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("account_Name", "joao v b mouzinho.com");
+        Bank_Details bank = query.getSingleResult();
+        assertNotNull(bank);
+        bank.setAccount_Name("Testando ojpql");
+        em.flush();
+        assertEquals(0, query.getResultList().size());
+
+    }
+    
+    @Test
+    public void atualizarAddressMergeJpql() {
+        logger.info("Executando atualizarAddressMerge()");
+        TypedQuery<Bank_Details> query = em.createNamedQuery("Bank.porNome", Bank_Details.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("account_Name", "Guilherme h f oliveira");
+        Bank_Details bank = query.getSingleResult();
+        assertNotNull(bank);
+        bank.setAccount_Name("Testa");
+        em.clear();        
+        em.merge(bank);
+        em.flush();
+       assertEquals(0, query.getResultList().size());
+    }
+
+    @Test
+    public void removerCategoria() {
+        logger.info("Executando removerCategoria()");
+        TypedQuery<Bank_Details> query = em.createNamedQuery("Bank.porNome", Bank_Details.class);
+        query.setParameter("account_Name", "Teste");
+        Bank_Details bank = query.getSingleResult();
+        assertNotNull(bank);
+        em.remove(bank);
+        em.flush();
+        assertEquals(0, query.getResultList().size());
     }
        
     @Test

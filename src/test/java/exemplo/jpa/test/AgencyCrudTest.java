@@ -83,10 +83,10 @@ public class AgencyCrudTest extends GenericTest {
         logger.info("Executando AtualizarAddress()");
         TypedQuery<Agency> query = em.createNamedQuery("Agency.porEmail", Agency.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter("email", "Tam@descorp.com");
-        Agency address = query.getSingleResult();
-        assertNotNull(address);
-        address.setEmail("aaaaaa@aaaaa.com");
+        query.setParameter("email", "gol@descorp.com");
+        Agency agency = query.getSingleResult();
+        assertNotNull(agency);
+        agency.setEmail("aaaa@descorp.com");
         em.flush();
         assertEquals(0, query.getResultList().size());
 
@@ -111,7 +111,7 @@ public class AgencyCrudTest extends GenericTest {
     public void removerCategoria() {
         logger.info("Executando removerCategoria()");
         TypedQuery<Agency> query = em.createNamedQuery("Agency.porTelefone", Agency.class);
-        query.setParameter("phone", "98956596");
+        query.setParameter("phone", "81998484");
         Agency agency = query.getSingleResult();
         assertNotNull(agency);
         em.remove(agency);

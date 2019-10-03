@@ -5,6 +5,7 @@
  */
 package exemplo.jpa.test;
 
+import exemplo.jpa.Hotel;
 import exemplo.jpa.InternalProject;
 import static exemplo.jpa.test.GenericTest.logger;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -83,6 +85,57 @@ public class InternalProjectCrudTest extends GenericTest{
         assertEquals(newDate.getTime(), project.getFinalDate());
 
     }
+    
+      @Test
+    public void atualizarAgencyJpqlTeste() {
+        logger.info("Executando AtualizarAddress()");
+        TypedQuery<InternalProject> query = em.createNamedQuery("InternalProject.porDataDeInico", InternalProject.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("startDate","2033-10-15");
+        InternalProject internalProject = query.getSingleResult();
+        assertNotNull(internalProject);
+        Calendar newDate = Calendar.getInstance();
+         newDate.set(Calendar.YEAR,2020);
+         newDate.set(Calendar.MONTH, Calendar.SEPTEMBER);
+         newDate.set(Calendar.DAY_OF_MONTH, 14);
+         internalProject.setStartDate(newDate.getTime());
+
+        em.flush();
+        assertEquals(0, query.getResultList().size());
+
+    }
+    
+    @Test
+    public void atualizarAddressMergeJpql() {
+        logger.info("Executando atualizarAddressMerge()");
+        TypedQuery<InternalProject> query = em.createNamedQuery("InternalProject.porDataDeInico", InternalProject.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("startDate", "2040-09-05");
+        InternalProject internalProject = query.getSingleResult();
+        assertNotNull(internalProject);
+        Calendar newDate = Calendar.getInstance();
+         newDate.set(Calendar.YEAR,2020);
+         newDate.set(Calendar.MONTH, Calendar.SEPTEMBER);
+         newDate.set(Calendar.DAY_OF_MONTH, 5);
+         internalProject.setStartDate(newDate.getTime());
+        em.clear();        
+        em.merge(internalProject);
+        em.flush();
+       assertEquals(0, query.getResultList().size());
+    }
+
+    @Test
+    public void removerCategoria() {
+        logger.info("Executando removerCategoria()");
+        TypedQuery<InternalProject> query = em.createNamedQuery("InternalProject.porDataDeInico", InternalProject.class);
+        query.setParameter("startDate", "2026-09-05");
+        InternalProject internalProject = query.getSingleResult();
+        assertNotNull(internalProject);
+        em.remove(internalProject);
+        em.flush();
+        assertEquals(0, query.getResultList().size());
+    }
+    
     
     
     
