@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: exemplo.jpa.test.AddressCrudTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 54.862 sec <<< FAILURE!
+Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 34.926 sec <<< FAILURE!
 removerAddress(exemplo.jpa.test.AddressCrudTest)  Time elapsed: 0.094 sec  <<< FAILURE!
 java.lang.AssertionError: Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.5.v20170607-b3d05bd): org.eclipse.persistence.exceptions.DatabaseException
 Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`truetravel`.`hotel`, CONSTRAINT `FK_HOTEL_ID_ADDRESS` FOREIGN KEY (`ID_ADDRESS`) REFERENCES `address` (`ID`))

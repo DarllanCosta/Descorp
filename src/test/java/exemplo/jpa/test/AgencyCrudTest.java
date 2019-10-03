@@ -10,6 +10,7 @@ import static exemplo.jpa.test.GenericTest.logger;
 import java.util.HashMap;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -75,6 +76,47 @@ public class AgencyCrudTest extends GenericTest {
         assertEquals(newEmail, agency.getEmail());
         assertEquals(newName, agency.getAgencyName());
 
+    }
+    
+    @Test
+    public void atualizarAgencyJpqlTeste() {
+        logger.info("Executando AtualizarAddress()");
+        TypedQuery<Agency> query = em.createNamedQuery("Agency.porEmail", Agency.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("email", "Tam@descorp.com");
+        Agency address = query.getSingleResult();
+        assertNotNull(address);
+        address.setEmail("aaaaaa@aaaaa.com");
+        em.flush();
+        assertEquals(0, query.getResultList().size());
+
+    }
+    
+    @Test
+    public void atualizarAddressMergeJpql() {
+        logger.info("Executando atualizarAddressMerge()");
+        TypedQuery<Agency> query = em.createNamedQuery("Agency.porTelefone", Agency.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("phone", "819995784");
+        Agency agency = query.getSingleResult();
+        assertNotNull(agency);
+        agency.setPhone("8145454545");
+        em.clear();        
+        em.merge(agency);
+        em.flush();
+       assertEquals(0, query.getResultList().size());
+    }
+
+    @Test
+    public void removerCategoria() {
+        logger.info("Executando removerCategoria()");
+        TypedQuery<Agency> query = em.createNamedQuery("Agency.porTelefone", Agency.class);
+        query.setParameter("phone", "98956596");
+        Agency agency = query.getSingleResult();
+        assertNotNull(agency);
+        em.remove(agency);
+        em.flush();
+        assertEquals(0, query.getResultList().size());
     }
        
     @Test
