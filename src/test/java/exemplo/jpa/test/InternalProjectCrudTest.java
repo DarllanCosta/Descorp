@@ -5,6 +5,7 @@
  */
 package exemplo.jpa.test;
 
+import exemplo.jpa.Hotel;
 import exemplo.jpa.InternalProject;
 import static exemplo.jpa.test.GenericTest.logger;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -83,6 +85,10 @@ public class InternalProjectCrudTest extends GenericTest{
         assertEquals(newDate.getTime(), project.getFinalDate());
 
     }
+    
+     
+   
+    
     
     
     

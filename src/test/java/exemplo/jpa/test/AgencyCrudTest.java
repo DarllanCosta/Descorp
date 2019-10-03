@@ -83,10 +83,10 @@ public class AgencyCrudTest extends GenericTest {
         logger.info("Executando AtualizarAddress()");
         TypedQuery<Agency> query = em.createNamedQuery("Agency.porEmail", Agency.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter("email", "Tam@descorp.com");
-        Agency address = query.getSingleResult();
-        assertNotNull(address);
-        address.setEmail("aaaaaa@aaaaa.com");
+        query.setParameter("email", "gol@descorp.com");
+        Agency agency = query.getSingleResult();
+        assertNotNull(agency);
+        agency.setEmail("aaaa@descorp.com");
         em.flush();
         assertEquals(0, query.getResultList().size());
 
