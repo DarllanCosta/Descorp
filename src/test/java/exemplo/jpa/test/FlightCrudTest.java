@@ -122,7 +122,7 @@ public class FlightCrudTest extends GenericTest {
     private Flight criarFlight(){
         Flight newFlight = new Flight();
         Calendar newDate = Calendar.getInstance();
-        newDate.set(Calendar.YEAR,2019);
+        newDate.set(Calendar.YEAR,2020);
         newDate.set(Calendar.MONTH, Calendar.NOVEMBER);
         newDate.set(Calendar.DAY_OF_MONTH, 5);
         newFlight.setProvider("IFPETRAVEL");

@@ -107,7 +107,7 @@ public class IntineraryCrudTest extends GenericTest {
        itinerary.setDeparture("Alagoas");
        itinerary.setDestination("Rio Branco");
        Calendar newDate1 = Calendar.getInstance();
-       newDate1.set(Calendar.YEAR,2019);
+       newDate1.set(Calendar.YEAR,2020);
        newDate1.set(Calendar.MONTH, Calendar.DECEMBER);
        newDate1.set(Calendar.DAY_OF_MONTH, 15);
        
