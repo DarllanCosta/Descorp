@@ -23,6 +23,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -66,6 +67,7 @@ public class Flight implements Serializable{
     @Temporal(TemporalType.DATE)
     Date checkin; 
     @NotNull
+    @DecimalMin(value = "0")
     @Column(name = "TXT_PRICE", nullable = false)
     Double price;
     

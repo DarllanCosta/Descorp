@@ -22,6 +22,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -53,6 +55,8 @@ public class Hotel implements Serializable {
     @Column(name = "TXT_NAME", nullable = false,length = 255)
     String name;
     
+    @DecimalMin(value = "0")
+    @DecimalMax(value = "5")
     @Column(name = "NUMBER_STARS", length = 5)
     Integer nStars;    
     

@@ -21,6 +21,7 @@ import javax.validation.ConstraintViolationException;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -93,4 +94,21 @@ public class ValidationTeste {
     }
     
     
-}
+    @Test
+    public void PersistirQuoteValida(){
+        Quote quote = new Quote();
+               
+        quote.setIsSelected(1);
+        quote.setStatus("new");
+        em.persist(quote);
+        em.flush();
+        assertNotNull(quote.getId());
+               
+    }  
+    
+    
+    
+    
+    
+    
+    }

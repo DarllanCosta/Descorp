@@ -42,11 +42,11 @@ public class Quote implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-   // @NotNull
+  
     @Column(name = "IS_SELECTED", nullable = false)
     Integer isSelected;
     @Column(name = "TXT_STATUS", nullable = false)
-   // @NotNull
+ 
     @ValidaStatus
     String Status;
     
