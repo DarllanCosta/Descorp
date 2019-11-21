@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="exemplo.jpa.test.AddressCrudTest" time="0.81" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="exemplo.jpa.test.AddressCrudTest" time="3.288" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -14,7 +14,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/wsena/Área de Trabalho/Descorp-master"/>
+    <property name="user.dir" value="/home/wsena/Área de Trabalho/Entrega Final/Descorp"/>
     <property name="java.runtime.version" value="1.8.0_201-b09"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
@@ -60,10 +60,10 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="removerAddressCrudTeste" time="0.004"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddressJpqlTeste" time="0.025"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="persistirAddress" time="0.01"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddress" time="0.012"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddressMergeJpql" time="0.02"/>
-  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddressMerge" time="0.004"/>
+  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="removerAddressCrudTeste" time="0.035"/>
+  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddressJpqlTeste" time="0.069"/>
+  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="persistirAddress" time="0.029"/>
+  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddress" time="0.039"/>
+  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddressMergeJpql" time="0.04"/>
+  <testcase classname="exemplo.jpa.test.AddressCrudTest" name="atualizarAddressMerge" time="0.041"/>
 </testsuite>
