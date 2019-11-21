@@ -473,6 +473,43 @@ public class JpqlTest extends GenericTest {
         assertEquals(6, dep.size());
     }
     
+    @Test
+    public void HotelPorIDAddresNativeQueryOnJoin() {
+        logger.info("Executando HotelPorIDAddresNativeQueryOnJoin()");
+        Query query;
+        query = em.createNativeQuery(
+                "SELECT a.TXT_NAME, a.ID_ADDRESS, a.NUMBER_STARS, a.ID from HOTEL a JOIN ADDRESS ad ON a.ID_ADDRESS = ad.ID",
+                Hotel.class);
+        List<Hotel> hotel = query.getResultList();
+        assertEquals(7, hotel.size());
+    }
+    
+    @Test
+    public void hotelComJoin() {
+        logger.info("Executando hotelComJoin()");
+        TypedQuery<Hotel> query;
+        query = em.createQuery(
+                "SELECT h FROM Hotel h JOIN h.address ad WHERE h.name = ?1",
+                Hotel.class);
+        query.setParameter(1, "holiday");
+        Hotel hotel = query.getSingleResult();
+        assertEquals("holiday", hotel.getName());
+        assertNotNull(hotel.getAddress());
+    }
+    
+    @Test
+    public void compradoresCartoesLeftJoin() {
+        logger.info("Executando compradoresCartoesLeftJoin()");
+        TypedQuery<Object[]> query;
+        query = em.createQuery(
+                "SELECT q.id, f.id FROM Quote q LEFT JOIN q.flight f ORDER BY q.id",
+                Object[].class);
+        List<Object[]> quote = query.getResultList();
+        assertEquals(4, quote.size());
+    }
+    
+  
+    
     
    
     
