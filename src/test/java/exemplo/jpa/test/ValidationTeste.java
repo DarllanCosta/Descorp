@@ -18,6 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.hamcrest.CoreMatchers;
@@ -140,6 +141,27 @@ public class ValidationTeste {
             throw ex;
     }
 }
+    
+    
+    
+    @Test(expected = ConstraintViolationException.class)
+    public void atualizarUsuarioInvalido() {
+        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.name like :name", User.class);
+        query.setParameter("name", "darllan");
+        User usuario = query.getSingleResult();
+        usuario.setEmail("a");
+
+        try {
+            em.flush();
+        } catch (ConstraintViolationException ex) {           
+            ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
+            assertEquals("Não é um endereço de e-mail", violation.getMessage());
+            assertEquals(1, ex.getConstraintViolations().size());
+            throw ex;
+        }
+    }
+    
+    
     
 
 }
