@@ -10,6 +10,8 @@ import exemplo.jpa.Flight;
 import exemplo.jpa.Hotel;
 import exemplo.jpa.Itinerary;
 import exemplo.jpa.Quote;
+import exemplo.jpa.User;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -18,10 +20,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import org.hamcrest.CoreMatchers;
+import static org.hamcrest.CoreMatchers.startsWith;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -84,7 +90,6 @@ public class ValidationTeste {
         em.persist(quote);
         }catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
-            System.out.println("darllan: "+violation.getMessage());
            assertEquals("O status especificado não existe", violation.getMessage());
            assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
@@ -106,9 +111,35 @@ public class ValidationTeste {
                
     }  
     
+    @Test(expected = ConstraintViolationException.class)
+    public void persistirUsuarioInvalido() {
+        User usuario = new User();
+        
+        try{
+        
+        usuario.setName("sadkjsakldjsakjdklsajdksajdklsajdsdsadnksadjklasjdklsajdklasjdklsajdklsadsadasjdklasjdksjadkljaskldjsakdjaskldjaskd");
+        usuario.setEmail("oi"); // invalido
+        usuario.setPassword("passwordqualquer");
+        usuario.setUsername("qualquerusername");
+        usuario.setPhone("8197771111");
+        em.persist(usuario);
     
-    
-    
-    
-    
+    }catch (ConstraintViolationException ex) {
+        Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
+        for (ConstraintViolation violation : constraintViolations) {
+            assertThat(violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(),
+                        CoreMatchers.anyOf(
+                        startsWith("class exemplo.jpa.User.email: Não é um endereço de e-mail"),
+                        startsWith("class exemplo.jpa.User.name: tamanho deve estar entre 0 e 50")
+                        )
+            );
+        }
+        
+        assertEquals(2, constraintViolations.size());
+            assertNull(usuario.getId());
+            throw ex;
     }
+}
+    
+
+}
