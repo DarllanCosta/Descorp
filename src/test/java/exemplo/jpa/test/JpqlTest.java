@@ -18,22 +18,9 @@ import static org.junit.Assert.*;
  */
 public class JpqlTest extends GenericTest {
 
-    @Test
-    public void UserPorNome() {
-        logger.info("Executando UserPorNome()");
-        TypedQuery<User> query = em.createQuery(
-                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
-                User.class);
-        query.setParameter("name", "enilsu");
-        List<User> users = query.getResultList();
-
-        for (User user : users) {
-            assertTrue(user.getName().startsWith("enilsu"));
-        }
-
-        assertEquals(1, users.size());
-    }
-
+   
+    
+//-----------------------------------------ADDRESS----------------------------------------------------------- 
     @Test
     public void AddressPorBairro() {
         logger.info("Executando AddressPorBairro()");
@@ -48,16 +35,6 @@ public class JpqlTest extends GenericTest {
         }
 
         assertEquals(1, addresss.size());
-    }
-        
-    @Test
-    public void categoriaSQLNomeada() {
-        logger.info("Executando sql()");
-        Query query;
-        query = em.createNamedQuery("user.porUsername");
-        query.setParameter("username", "enilsinho");
-        List<User> user = query.getResultList();
-        assertEquals(1, user.size());
     }
     
     @Test
@@ -74,6 +51,18 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(13, address.size());
     }
+    
+    @Test
+    public void QuantidadeAddressPorCEP(){
+        logger.info("Executando QuantidadeAddressPorCep()");
+        TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(a) FROM Hotel a WHERE a.address IS NOT NULL", Long.class);
+        
+        Long resultado = query.getSingleResult();
+        assertEquals(new Long(7), resultado);  
+    }
+    
+//-----------------------------------------------AGENCY----------------------------------------------------
     @Test
     public void AgencyPorEmail(){
         logger.info("Executando Agency por Email");
@@ -88,6 +77,16 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(1, agency.size());
     }
+        
+    @Test
+    public void AgencyDistinct() {
+        logger.info("Executando departureDistinct()");
+        TypedQuery<String> query
+                = em.createQuery("SELECT DISTINCT(c.account_Name) FROM Bank_Details c ORDER BY c.account_Name", String.class);
+        List<String> dep = query.getResultList();
+        assertEquals(6, dep.size());
+    }
+    
     @Test
     public void AgencyPorTelefone(){
         logger.info("Executando Agency por telefone");
@@ -102,6 +101,8 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(1, agency.size());
     }
+    
+//--------------------------------------------BANKDETAIL-----------------------------------------------------
     @Test
     public void bankPorAgencia(){
         logger.info("Executando Bank por agencia");
@@ -144,6 +145,48 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(1, bank.size());
     }
+    
+      
+    @Test
+    public void ordenacaoCartao() {
+        logger.info("Executando ordenacaoCartao()");
+        TypedQuery<Bank_Details> query;
+        query = em.createQuery(
+                "SELECT c FROM Bank_Details c ORDER BY c.account_Number DESC",
+                Bank_Details.class);
+        List<Bank_Details> cartoes = query.getResultList();
+        assertEquals(6, cartoes.size());
+        assertEquals("6062878787878787", cartoes.get(0).getAccount_Number());
+        assertEquals("6062878787878787", cartoes.get(1).getAccount_Number());
+        assertEquals("6062878787878787", cartoes.get(2).getAccount_Number());
+        assertEquals("6062878787878787", cartoes.get(3).getAccount_Number());
+        assertEquals("60628787878787", cartoes.get(4).getAccount_Number());
+        assertEquals("606287878787823787", cartoes.get(5).getAccount_Number());
+       
+    }
+    @Test
+    public void BankTypes() {
+        logger.info("Executando BankTypes()");
+        TypedQuery<Bank_Details> query;
+        query = em.createQuery(
+                "SELECT c FROM Bank_Details c "
+                + "WHERE c.account_Type IN ('Corrente', 'poupança')",
+                Bank_Details.class);
+        List<Bank_Details> bank = query.getResultList();
+
+        for (Bank_Details b : bank) {
+            assertThat(b.getAccount_Type(),
+                    CoreMatchers.anyOf(
+                            startsWith("Corrente"),
+                            startsWith("poupança")));
+        }
+
+        assertEquals(5, bank.size());
+    }
+    
+    
+    
+//-------------------------------------------FLIGHT-----------------------------------------------------------
     @Test
     public void FloghtProNumber(){
         logger.info("Executando Flight por Numero");
@@ -158,6 +201,33 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(1, flight.size());
     }
+    
+    @Test
+    public void FlightPorDestination(){
+        logger.info("Executando FligtPorDestination()");
+        TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(a) FROM Flight a WHERE a.destination LIKE :destination", Long.class);
+        query.setParameter("destination", "Bahia");
+        
+        Long resultado = query.getSingleResult();
+        assertEquals(new Long(4), resultado);  
+    }
+    
+    @Test
+    public void FlightPrice() {
+        logger.info("Executando FlightPrice()");
+        TypedQuery<Flight> query;
+        query = em.createQuery(
+                "SELECT a FROM Flight a WHERE a.price BETWEEN ?1 AND ?2",
+                Flight.class);
+        query.setParameter(1, 1000);
+        query.setParameter(2, 2000);
+        List<Flight> flight = query.getResultList();
+        assertEquals(1, flight.size());
+    }
+   
+    
+//---------------------------------------------------------HOTEL-----------------------------------------------    
     @Test
     public void HotelPorNumeroDeEstrelar(){
         logger.info("Executando hotel por Estrelas");
@@ -172,6 +242,58 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(5, hotel.size());
     }
+    
+    @Test
+    public void HotelPorAddress(){
+        logger.info("Executando HotelPorAddress()");
+        TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(a) FROM Hotel a WHERE a.address.state LIKE :state", Long.class);
+        query.setParameter("state", "Pernambuco");
+        
+        Long resultado = query.getSingleResult();
+        assertEquals(new Long(5), resultado);  
+    }
+    
+    @Test
+    public void hotelStars() {
+        logger.info("Executando hotelstars()");
+        TypedQuery<Hotel> query;
+        query = em.createQuery(
+                "SELECT a FROM Hotel a WHERE a.nStars BETWEEN ?1 AND ?2",
+                Hotel.class);
+        query.setParameter(1, 3);
+        query.setParameter(2, 5);
+        List<Hotel> hotel = query.getResultList();
+        assertEquals(6, hotel.size());
+    }
+    
+    @Test
+    public void HotelPorIDAddresNativeQueryOnJoin() {
+        logger.info("Executando HotelPorIDAddresNativeQueryOnJoin()");
+        Query query;
+        query = em.createNativeQuery(
+                "SELECT a.TXT_NAME, a.ID_ADDRESS, a.NUMBER_STARS, a.ID from HOTEL a JOIN ADDRESS ad ON a.ID_ADDRESS = ad.ID",
+                Hotel.class);
+        List<Hotel> hotel = query.getResultList();
+        assertEquals(7, hotel.size());
+    }
+    
+    @Test
+    public void hotelComJoin() {
+        logger.info("Executando hotelComJoin()");
+        TypedQuery<Hotel> query;
+        query = em.createQuery(
+                "SELECT h FROM Hotel h JOIN h.address ad WHERE h.name = ?1",
+                Hotel.class);
+        query.setParameter(1, "holiday");
+        Hotel hotel = query.getSingleResult();
+        assertEquals("holiday", hotel.getName());
+        assertNotNull(hotel.getAddress());
+    }
+    
+    
+    
+//------------------------------------------------INTERNALPROJECT--------------------------------------------
     @Test
     public void InternalProjectProDepartamento(){
         logger.info("Executando project por departamento");
@@ -201,6 +323,8 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(4, itinerary.size());
     }
+    
+//----------------------------------PROJECTCLIENTE---------------------------------------------------------------
     @Test
     public void ProjectClientPorAllocation(){
         logger.info("Executando project por Allocation");
@@ -229,6 +353,8 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(0, project.size());
     }
+    
+//---------------------------------------------------QUOTE----------------------------------------------------
     @Test
     public void QuotePorStatus(){
         logger.info("Executando Quote por Status");
@@ -242,111 +368,6 @@ public class JpqlTest extends GenericTest {
         }
 
         assertEquals(4, quote.size());
-    }
-    @Test
-    public void RequestPorDeparture(){
-        logger.info("Executando Quote por Status");
-        Query query;
-        query = em.createNamedQuery("request.porDeparture");
-        query.setParameter("departure", "Recife");
-        List<Request> request = query.getResultList();
-
-        for (Request po : request) {
-                 assertTrue(po.getDeparture().startsWith("Recife"));
-        }
-
-        assertEquals(4, request.size());
-    }
-    @Test
-    public void UserPorUsername(){
-        logger.info("Executando Quote por Status");
-        Query query;
-        query = em.createNamedQuery("user.porUsername");
-        query.setParameter("username", "darllanzinho");
-        List<User> user = query.getResultList();
-
-        for (User po : user) {
-                 assertTrue(po.getUsername().startsWith("darllanzinho"));
-        }
-
-        assertEquals(1, user.size());
-    }
-    
-    @Test
-    public void QuantidadeAddressPorCEP(){
-        logger.info("Executando QuantidadeAddressPorCep()");
-        TypedQuery<Long> query = em.createQuery(
-                "SELECT COUNT(a) FROM Hotel a WHERE a.address IS NOT NULL", Long.class);
-        
-        Long resultado = query.getSingleResult();
-        assertEquals(new Long(7), resultado);  
-    }
-    
-    @Test
-    public void QuoteFlightsDeparture(){
-        logger.info("Executando QuoteFlightsDeparture()");
-        TypedQuery<Long> query = em.createQuery(
-                "SELECT COUNT(a) FROM Quote a WHERE a.flight.departure LIKE :departure", Long.class);
-        query.setParameter("departure", "Recife");
-        
-        Long resultado = query.getSingleResult();
-        assertEquals(new Long(4), resultado);  
-    }
-    
-    @Test
-    public void userAddress(){
-        logger.info("Executando userAddress()");
-        TypedQuery<Long> query = em.createQuery(
-                "SELECT COUNT(a) FROM User a WHERE a.address.postalCode LIKE :cep", Long.class);
-        query.setParameter("cep", "50720660");
-        
-        Long resultado = query.getSingleResult();
-        assertEquals(new Long(0), resultado);  
-    }
-    @Test
-    public void HotelPorAddress(){
-        logger.info("Executando HotelPorAddress()");
-        TypedQuery<Long> query = em.createQuery(
-                "SELECT COUNT(a) FROM Hotel a WHERE a.address.state LIKE :state", Long.class);
-        query.setParameter("state", "Pernambuco");
-        
-        Long resultado = query.getSingleResult();
-        assertEquals(new Long(5), resultado);  
-    }
-    @Test
-    public void FlightPorDestination(){
-        logger.info("Executando FligtPorDestination()");
-        TypedQuery<Long> query = em.createQuery(
-                "SELECT COUNT(a) FROM Flight a WHERE a.destination LIKE :destination", Long.class);
-        query.setParameter("destination", "Bahia");
-        
-        Long resultado = query.getSingleResult();
-        assertEquals(new Long(4), resultado);  
-    }
-    
-    @Test
-    public void FlightPrice() {
-        logger.info("Executando FlightPrice()");
-        TypedQuery<Flight> query;
-        query = em.createQuery(
-                "SELECT a FROM Flight a WHERE a.price BETWEEN ?1 AND ?2",
-                Flight.class);
-        query.setParameter(1, 1000);
-        query.setParameter(2, 2000);
-        List<Flight> flight = query.getResultList();
-        assertEquals(1, flight.size());
-    }
-    @Test
-    public void hotelStars() {
-        logger.info("Executando hotelstars()");
-        TypedQuery<Hotel> query;
-        query = em.createQuery(
-                "SELECT a FROM Hotel a WHERE a.nStars BETWEEN ?1 AND ?2",
-                Hotel.class);
-        query.setParameter(1, 3);
-        query.setParameter(2, 5);
-        List<Hotel> hotel = query.getResultList();
-        assertEquals(6, hotel.size());
     }
     
     @Test
@@ -409,92 +430,17 @@ public class JpqlTest extends GenericTest {
 
         assertEquals(1, quotes.size());
     }
+     
     
     @Test
-    public void usernamesDistintos() {
-        logger.info("Executando usernamesDistintos()");
-        TypedQuery<String> query
-                = em.createQuery("SELECT DISTINCT(c.username) FROM User c ORDER BY c.username", String.class);
-        List<String> username = query.getResultList();
-        assertEquals(5, username.size());
-    }
-    @Test
-    public void departureDistinct() {
-        logger.info("Executando departureDistinct()");
-        TypedQuery<String> query
-                = em.createQuery("SELECT DISTINCT(c.departure) FROM Request c ORDER BY c.departure", String.class);
-        List<String> dep = query.getResultList();
-        assertEquals(1, dep.size());
-    }
-    @Test
-    public void ordenacaoCartao() {
-        logger.info("Executando ordenacaoCartao()");
-        TypedQuery<Bank_Details> query;
-        query = em.createQuery(
-                "SELECT c FROM Bank_Details c ORDER BY c.account_Number DESC",
-                Bank_Details.class);
-        List<Bank_Details> cartoes = query.getResultList();
-        assertEquals(6, cartoes.size());
-        assertEquals("6062878787878787", cartoes.get(0).getAccount_Number());
-        assertEquals("6062878787878787", cartoes.get(1).getAccount_Number());
-        assertEquals("6062878787878787", cartoes.get(2).getAccount_Number());
-        assertEquals("6062878787878787", cartoes.get(3).getAccount_Number());
-        assertEquals("60628787878787", cartoes.get(4).getAccount_Number());
-        assertEquals("606287878787823787", cartoes.get(5).getAccount_Number());
-       
-    }
-    
-    @Test
-    public void BankTypes() {
-        logger.info("Executando BankTypes()");
-        TypedQuery<Bank_Details> query;
-        query = em.createQuery(
-                "SELECT c FROM Bank_Details c "
-                + "WHERE c.account_Type IN ('Corrente', 'poupança')",
-                Bank_Details.class);
-        List<Bank_Details> bank = query.getResultList();
-
-        for (Bank_Details b : bank) {
-            assertThat(b.getAccount_Type(),
-                    CoreMatchers.anyOf(
-                            startsWith("Corrente"),
-                            startsWith("poupança")));
-        }
-
-        assertEquals(5, bank.size());
-    }
-    
-    @Test
-    public void AgencyDistinct() {
-        logger.info("Executando departureDistinct()");
-        TypedQuery<String> query
-                = em.createQuery("SELECT DISTINCT(c.account_Name) FROM Bank_Details c ORDER BY c.account_Name", String.class);
-        List<String> dep = query.getResultList();
-        assertEquals(6, dep.size());
-    }
-    
-    @Test
-    public void HotelPorIDAddresNativeQueryOnJoin() {
-        logger.info("Executando HotelPorIDAddresNativeQueryOnJoin()");
-        Query query;
-        query = em.createNativeQuery(
-                "SELECT a.TXT_NAME, a.ID_ADDRESS, a.NUMBER_STARS, a.ID from HOTEL a JOIN ADDRESS ad ON a.ID_ADDRESS = ad.ID",
-                Hotel.class);
-        List<Hotel> hotel = query.getResultList();
-        assertEquals(7, hotel.size());
-    }
-    
-    @Test
-    public void hotelComJoin() {
-        logger.info("Executando hotelComJoin()");
-        TypedQuery<Hotel> query;
-        query = em.createQuery(
-                "SELECT h FROM Hotel h JOIN h.address ad WHERE h.name = ?1",
-                Hotel.class);
-        query.setParameter(1, "holiday");
-        Hotel hotel = query.getSingleResult();
-        assertEquals("holiday", hotel.getName());
-        assertNotNull(hotel.getAddress());
+    public void QuoteFlightsDeparture(){
+        logger.info("Executando QuoteFlightsDeparture()");
+        TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(a) FROM Quote a WHERE a.flight.departure LIKE :departure", Long.class);
+        query.setParameter("departure", "Recife");
+        
+        Long resultado = query.getSingleResult();
+        assertEquals(new Long(4), resultado);  
     }
     
     @Test
@@ -507,6 +453,101 @@ public class JpqlTest extends GenericTest {
         List<Object[]> quote = query.getResultList();
         assertEquals(4, quote.size());
     }
+    
+//------------------------------------------------REQUEST------------------------------------------------------
+    @Test
+    public void RequestPorDeparture(){
+        logger.info("Executando Quote por Status");
+        Query query;
+        query = em.createNamedQuery("request.porDeparture");
+        query.setParameter("departure", "Recife");
+        List<Request> request = query.getResultList();
+
+        for (Request po : request) {
+                 assertTrue(po.getDeparture().startsWith("Recife"));
+        }
+
+        assertEquals(4, request.size());
+    }
+    
+    @Test
+    public void departureDistinct() {
+        logger.info("Executando departureDistinct()");
+        TypedQuery<String> query
+                = em.createQuery("SELECT DISTINCT(c.departure) FROM Request c ORDER BY c.departure", String.class);
+        List<String> dep = query.getResultList();
+        assertEquals(1, dep.size());
+    }
+   
+    
+//-----------------------------------------------USER---------------------------------------------------------
+    @Test
+    public void UserPorUsername(){
+        logger.info("Executando Quote por Status");
+        Query query;
+        query = em.createNamedQuery("user.porUsername");
+        query.setParameter("username", "darllanzinho");
+        List<User> user = query.getResultList();
+
+        for (User po : user) {
+                 assertTrue(po.getUsername().startsWith("darllanzinho"));
+        }
+
+        assertEquals(1, user.size());
+    }
+    
+    @Test
+    public void userAddress(){
+        logger.info("Executando userAddress()");
+        TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(a) FROM User a WHERE a.address.postalCode LIKE :cep", Long.class);
+        query.setParameter("cep", "50720660");
+        
+        Long resultado = query.getSingleResult();
+        assertEquals(new Long(0), resultado);  
+    }
+ 
+    
+    @Test
+    public void usernamesDistintos() {
+        logger.info("Executando usernamesDistintos()");
+        TypedQuery<String> query
+                = em.createQuery("SELECT DISTINCT(c.username) FROM User c ORDER BY c.username", String.class);
+        List<String> username = query.getResultList();
+        assertEquals(5, username.size());
+    }
+    
+     @Test
+    public void UserPorNome() {
+        logger.info("Executando UserPorNome()");
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u WHERE u.name LIKE :name ORDER BY u.id",
+                User.class);
+        query.setParameter("name", "enilsu");
+        List<User> users = query.getResultList();
+
+        for (User user : users) {
+            assertTrue(user.getName().startsWith("enilsu"));
+        }
+
+        assertEquals(1, users.size());
+    }
+    
+    @Test
+    public void UserPorUsernameNamedQuery() {
+        logger.info("Executando sql()");
+        Query query;
+        query = em.createNamedQuery("user.porUsername");
+        query.setParameter("username", "enilsinho");
+        List<User> user = query.getResultList();
+        assertEquals(1, user.size());
+    }
+    
+
+    
+    
+    
+    
     
   
     
